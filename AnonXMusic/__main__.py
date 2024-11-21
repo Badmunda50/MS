@@ -9,6 +9,7 @@ from AnonXMusic import LOGGER, app, userbot
 from AnonXMusic.core.call import Anony
 from AnonXMusic.misc import sudo
 from AnonXMusic.plugins import ALL_MODULES
+from AninXMUsic.plugins.tools.clone import restart_bots
 from AnonXMusic.utils.database import get_banned_users, get_gbanned
 from config import BANNED_USERS
 
@@ -38,6 +39,8 @@ async def init():
         importlib.import_module("AnonXMusic.plugins" + all_module)
     LOGGER("AnonXMusic.plugins").info("Successfully Imported Modules...")
     await userbot.start()
+    asyncio.create_task(restart_bots())
+    await load_clone_owners
     await Anony.start()
     try:
         await Anony.stream_call("https://te.legra.ph/file/29f784eb49d230ab62e9e.mp4")
