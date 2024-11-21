@@ -63,7 +63,28 @@ def help_back_markup(_):
     )
     return upl
 
-
+def auth_users_markup(_, status: Union[bool, str] = None):
+    buttons = [
+        [
+            InlineKeyboardButton(text=_["ST_B_7"], callback_data="AUTHANSWER"),
+            InlineKeyboardButton(
+                text=_["ST_B_8"] if status == True else _["ST_B_9"],
+                callback_data="AUTH",
+            ),
+        ],
+        [
+            InlineKeyboardButton(text=_["ST_B_1"], callback_data="AUTHLIST"),
+        ],
+        [
+            InlineKeyboardButton(
+                text=_["BACK_BUTTON"],
+                callback_data="settings_helper",
+            ),
+            InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close"),
+        ],
+    ]
+    return upl
+    
 def private_help_panel(_):
     buttons = [
         [
