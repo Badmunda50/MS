@@ -14,6 +14,9 @@ API_HASH = getenv("API_HASH")
 BOT_TOKEN = getenv("BOT_TOKEN")
 
 # Add Owner Username without @ 
+OWNER_USERNAME = getenv("OWNER_USERNAME", "II_BAD_BABY_II")
+
+# Add Owner Username without @ 
 BOT_USERNAME = getenv("BOT_USERNAME", "ShizuuMusicBot")
 
 # Get your mongo url from cloud.mongodb.com
