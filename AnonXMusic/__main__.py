@@ -40,7 +40,7 @@ async def init():
     LOGGER("AnonXMusic.plugins").info("Successfully Imported Modules...")
     await userbot.start()
     asyncio.create_task(restart_bots())
-    await load_clone_owners
+    await load_clone_owners()
     await Anony.start()
     try:
         await Anony.stream_call("https://te.legra.ph/file/29f784eb49d230ab62e9e.mp4")
