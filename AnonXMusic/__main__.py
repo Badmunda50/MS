@@ -5,7 +5,7 @@ from pyrogram import idle
 from pytgcalls.exceptions import NoActiveGroupCall
 
 import config
-from AnonXMusic import LOGGER, app, userbot, load_clone_owners
+from AnonXMusic import LOGGER, app, userbot
 from AnonXMusic.core.call import Anony
 from AnonXMusic.misc import sudo
 from AnonXMusic.plugins import ALL_MODULES
