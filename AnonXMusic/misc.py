@@ -1,4 +1,3 @@
-
 import socket
 import time
 
@@ -41,6 +40,7 @@ def dbb():
     global db
     global clonedb
     db = {}
+    clonedb = {}
     LOGGER(__name__).info(f"Local Database Initialized.")
 
 
