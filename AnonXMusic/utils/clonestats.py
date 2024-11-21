@@ -1,63 +1,31 @@
 from AnonXMusic.core.mongo import mongodb
-from config import OWNER_ID
+from typing import Dict, List, Union
 
+cloneownerdb = mongodb.cloneownerdb
 clonebotdb = mongodb.clonebotdb
-
-cloneownerdb = mongodb.clone_owners
-
-async def get_clone_owner(bot_id):
-    data = await cloneownerdb.find_one({"bot_id": bot_id})
-    if data:
-        return data["user_id"]
-    return None
-    
-async def is_owner(bot_id, user_id):
-    owner_id = await get_clone_owner(bot_id)
-    if owner_id == user_id or user_id == OWNER_ID or user_id in SUDOERS:
-        return True
-    return False
+clonebotnamedb = mongodb.clonebotnamedb
 
 
-def get_bot_users_collection(bot_id):
-    from nexichat import db as mongodb
-    return mongodb[f"{bot_id}_users"]
+# clone bot owner
+async def save_clonebot_owner(bot_id, user_id):
+    await cloneownerdb.insert_one({"bot_id": bot_id, "user_id": user_id})
 
-def get_bot_chats_collection(bot_id):
-    from nexichat import db as mongodb
-    return mongodb[f"{bot_id}_chats"]
 
-async def is_served_cuser(bot_id, user_id: int) -> bool:
-    usersdb = get_bot_users_collection(bot_id)
-    user = await usersdb.find_one({"user_id": user_id})
-    if not user:
+async def get_clonebot_owner(bot_id):
+    result = await cloneownerdb.find_one({"bot_id": bot_id})
+    if result:
+        return result.get("user_id")
+    else:
         return False
-    return True
 
-async def add_served_cuser(bot_id, user_id: int):
-    usersdb = get_bot_users_collection(bot_id)
-    is_served = await is_served_cuser(bot_id, user_id)
-    if is_served:
-        return
-    return await usersdb.insert_one({"user_id": user_id})
 
-async def get_served_cusers(bot_id) -> list:
-    usersdb = get_bot_users_collection(bot_id)
-    return await usersdb.find({"user_id": {"$gt": 0}}).to_list(length=None)
+async def save_clonebot_username(bot_id, user_name):
+    await clonebotnamedb.insert_one({"bot_id": bot_id, "user_name": user_name})
 
-async def is_served_cchat(bot_id, chat_id: int) -> bool:
-    chatsdb = get_bot_chats_collection(bot_id)
-    chat = await chatsdb.find_one({"chat_id": chat_id})
-    if not chat:
+
+async def get_clonebot_username(bot_id):
+    result = await clonebotnamedb.find_one({"bot_id": bot_id})
+    if result:
+        return result.get("user_name")
+    else:
         return False
-    return True
-
-async def add_served_cchat(bot_id, chat_id: int):
-    chatsdb = get_bot_chats_collection(bot_id)
-    is_served = await is_served_cchat(bot_id, chat_id)
-    if is_served:
-        return
-    return await chatsdb.insert_one({"chat_id": chat_id})
-
-async def get_served_cchats(bot_id) -> list:
-    chatsdb = get_bot_chats_collection(bot_id)
-    return await chatsdb.find({"chat_id": {"$lt": 0}}).to_list(length=None)
