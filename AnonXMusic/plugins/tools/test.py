@@ -15,7 +15,7 @@ from config import API_ID, API_HASH
 from AnonXMusic import app
 from AnonXMusic.misc import SUDOERS
 from AnonXMusic.utils.database import get_assistant
-from AnonXMusic.utils import clonebotdb
+from AnonXMusic.utils.clonestats import clonebotdb
 from config import LOGGER_ID as LOG_GROUP_ID 
 
 CLONES = set()
