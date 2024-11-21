@@ -38,7 +38,6 @@ async def init():
         importlib.import_module("AnonXMusic.plugins" + all_module)
     LOGGER("AnonXMusic.plugins").info("Successfully Imported Modules...")
     await userbot.start()
-    asyncio.create_task(restart_bots())
     await load_clone_owners()
     await Anony.start()
     try:
