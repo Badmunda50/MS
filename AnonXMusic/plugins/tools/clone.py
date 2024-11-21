@@ -24,6 +24,7 @@ async def clone_txt(client, message):
     if len(message.command) > 1:
         bot_token = message.text.split("/clone", 1)[1].strip()
         mi = await message.reply_text("Please wait while I check the bot token.")
+        bot = None  # Initialize bot variable here
         try:
             ai = Client(
                 bot_token,
@@ -33,22 +34,21 @@ async def clone_txt(client, message):
                 plugins=dict(root="AnonXMusic.cplugins"),
             )
             await ai.start()
-            bot = await ai.get_me()
+            bot = await ai.get_me()  # Assign bot here
             bot_users = await ai.get_users(bot.username)
             bot_id = bot_users.id
             user_id = message.from_user.id
             await save_clonebot_owner(bot_id, user_id)
             await ai.set_bot_commands([
-                    BotCommand("start", "Start the bot"),
-                    BotCommand("help", "Get the help menu"),
-                    BotCommand("play", "Play any song"),
-                    BotCommand("vplay", "Video play of any songs"),
-                    BotCommand("ping", "Check if the bot is alive or dead"),
-                    BotCommand("id", "Get users user_id"),
-                    BotCommand("stats", "Check bot stats"),
-                    BotCommand("gcast", "Broadcast any message to groups/users"),
-                  
-                ])
+                BotCommand("start", "Start the bot"),
+                BotCommand("help", "Get the help menu"),
+                BotCommand("play", "Play any song"),
+                BotCommand("vplay", "Video play of any songs"),
+                BotCommand("ping", "Check if the bot is alive or dead"),
+                BotCommand("id", "Get users user_id"),
+                BotCommand("stats", "Check bot stats"),
+                BotCommand("gcast", "Broadcast any message to groups/users"),
+            ])
         except (AccessTokenExpired, AccessTokenInvalid):
             await mi.edit_text("**Invalid bot token. Please provide a valid one.**")
             return
@@ -57,6 +57,10 @@ async def clone_txt(client, message):
             if cloned_bot:
                 await mi.edit_text("**🤖 Your bot is already cloned ✅**")
                 return
+
+        if not bot:  # Ensure bot is assigned before proceeding
+            await mi.edit_text("⚠️ **Bot cloning failed. Please check the token or try again.**")
+            return
 
         await mi.edit_text("**Cloning process started. Please wait for the bot to start.**")
         try:
@@ -83,7 +87,7 @@ async def clone_txt(client, message):
             )
         
         except PeerIdInvalid as e:
-            await mi.edit_text(f"**Your Bot Siccessfully Cloned👍**\n**You can check by /cloned**\n\n**But please start me (@{app.username}) From owner id**")
+            await mi.edit_text(f"**Your Bot Successfully Cloned👍**\n**You can check by /cloned**\n\n**But please start me (@{app.username}) From owner id**")
         except BaseException as e:
             logging.exception("Error while cloning bot.")
             await mi.edit_text(
@@ -91,7 +95,6 @@ async def clone_txt(client, message):
             )
     else:
         await message.reply_text("**Provide Bot Token after /clone Command from @Botfather.**\n\n**Example:** `/clone bot token paste here`")
-
 
 @app.on_message(filters.command("cloned"))
 async def list_cloned_bots(client, message):
