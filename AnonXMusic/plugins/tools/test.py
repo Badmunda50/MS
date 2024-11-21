@@ -10,7 +10,7 @@ from pyrogram.errors.exceptions.bad_request_400 import (
     AccessTokenExpired,
     AccessTokenInvalid,
 )
-from AnonXMusic.utils.database import get_assistant
+
 from config import API_ID, API_HASH
 from AnonXMusic import app
 from AnonXMusic.misc import SUDOERS
@@ -22,13 +22,13 @@ CLONES = set()
 
 
 @app.on_message(filters.command("clone") & SUDOERS)
-async def clone_txt(app, message):
+async def clone_txt(client, message):
     userbot = await get_assistant(message.chat.id)
     if len(message.command) > 1:
         bot_token = message.text.split("/clone", 1)[1].strip()
         mi = await message.reply_text("ᴘʟᴇᴀꜱᴇ ᴡᴀɪᴛ ᴡʜɪʟᴇ ɪ ᴘʀᴏᴄᴇꜱꜱ ᴛʜᴇ ʙᴏᴛ ᴛᴏᴋᴇɴ 💫 ")
         try:
-            ai = app(
+            ai = Client(
                 bot_token,
                 API_ID,
                 API_HASH,
@@ -96,7 +96,7 @@ async def clone_txt(app, message):
         ]
     )
 )
-async def delete_cloned_bot(app, message):
+async def delete_cloned_bot(client, message):
     try:
         if len(message.command) < 2:
             await message.reply_text(
@@ -130,7 +130,7 @@ async def restart_bots():
         bots = clonebotdb.find()
         async for bot in bots:
             bot_token = bot["token"]
-            ai = app(
+            ai = Client(
                 f"{bot_token}",
                 API_ID,
                 API_HASH,
@@ -149,7 +149,7 @@ async def restart_bots():
 
 
 @app.on_message(filters.command("clones") & SUDOERS)
-async def list_cloned_bots(app, message):
+async def list_cloned_bots(client, message):
     try:
         cloned_bots = clonebotdb.find()
         cloned_bots_list = await cloned_bots.to_list(length=None)
