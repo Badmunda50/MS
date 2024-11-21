@@ -25,7 +25,7 @@ async def clone_txt(client, message):
         bot_token = message.text.split("/clone", 1)[1].strip()
         mi = await message.reply_text("Please wait while I check the bot token.")
         try:
-            ai = Client(bot_token, API_ID, API_HASH, bot_token=bot_token, plugins=dict(root="AnonXMusic/cplugins"))
+            ai = Client(bot_token, API_ID, API_HASH, bot_token=bot_token, plugins=dict(root="AnonXMusic.cplugins"))
             await ai.start()
             bot = await ai.get_me()
             bot_id = bot.id
@@ -139,7 +139,7 @@ async def restart_bots():
         
         async def restart_bot(bot):
             bot_token = bot["token"]
-            ai = Client(bot_token, API_ID, API_HASH, bot_token=bot_token, plugins=dict(root="nexichat/mplugin"))
+            ai = Client(bot_token, API_ID, API_HASH, bot_token=bot_token, plugins=dict(root="AnonXMusic.cplugins"))
             try:
                 await ai.start()
                 bot_info = await ai.get_me()
