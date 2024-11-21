@@ -67,16 +67,16 @@ def stream_markup_timer(_, chat_id, played, dur):
         [
             InlineKeyboardButton(
 
-                text="ᴜᴘᴅᴀᴛᴇ",
+                text="sᴜᴘᴘᴏʀᴛ",
 
-                url=f"https://t.me/HEROKUBIN_01",
+                url=f"{SUPPORT_CHAT}",
 
             ),
             InlineKeyboardButton(
 
-                text="sᴜᴘᴘᴏʀᴛ",
+                text="ᴜᴘᴅᴀᴛᴇ",
 
-                url=f"{SUPPORT_CHAT}",
+                url=f"https://t.me/HEROKUBIN_01",
 
             ),
         ],
@@ -96,16 +96,16 @@ def stream_markup(_, chat_id):
         [
             InlineKeyboardButton(
 
-                text="ᴜᴘᴅᴀᴛᴇ",
+                text="sᴜᴘᴘᴏʀᴛ",
 
-                url=f"https://t.me/HEROKUBIN_01",
+                url=f"{SUPPORT_CHAT}",
 
             ),
             InlineKeyboardButton(
 
-                text="sᴜᴘᴘᴏʀᴛ",
+                text="ᴜᴘᴅᴀᴛᴇ",
 
-                url=f"{SUPPORT_CHAT}",
+                url=f"https://t.me/HEROKUBIN_01",
 
             ),
         ],
