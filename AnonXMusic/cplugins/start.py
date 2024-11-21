@@ -131,7 +131,7 @@ async def start_pm(client, message: Message, _):
         out = private_panel(_)
         await message.reply_photo(
             random.choice(IMAGE),
-            caption=_["start_2"].format(message.from_user.mention, Client.mention),
+            caption=_["start_2"].format(message.from_user.mention, app.mention),
             reply_markup=InlineKeyboardMarkup(out),
         )
         if await is_on_off(2):
@@ -187,7 +187,7 @@ async def welcome(client, message: Message):
                         message.from_user.first_name,
                         Client.mention,
                         message.chat.title,
-                        Client.mention,
+                        app.mention,
                     ),
                     reply_markup=InlineKeyboardMarkup(out),
                 )
