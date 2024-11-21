@@ -22,13 +22,13 @@ CLONES = set()
 
 
 @app.on_message(filters.command("clone") & SUDOERS)
-async def clone_txt(client, message):
+async def clone_txt(app, message):
     userbot = await get_assistant(message.chat.id)
     if len(message.command) > 1:
         bot_token = message.text.split("/clone", 1)[1].strip()
         mi = await message.reply_text("ᴘʟᴇᴀꜱᴇ ᴡᴀɪᴛ ᴡʜɪʟᴇ ɪ ᴘʀᴏᴄᴇꜱꜱ ᴛʜᴇ ʙᴏᴛ ᴛᴏᴋᴇɴ 💫 ")
         try:
-            ai = Client(
+            ai = app(
                 bot_token,
                 API_ID,
                 API_HASH,
@@ -96,7 +96,7 @@ async def clone_txt(client, message):
         ]
     )
 )
-async def delete_cloned_bot(client, message):
+async def delete_cloned_bot(app, message):
     try:
         if len(message.command) < 2:
             await message.reply_text(
@@ -130,7 +130,7 @@ async def restart_bots():
         bots = clonebotdb.find()
         async for bot in bots:
             bot_token = bot["token"]
-            ai = Client(
+            ai = app(
                 f"{bot_token}",
                 API_ID,
                 API_HASH,
@@ -149,7 +149,7 @@ async def restart_bots():
 
 
 @app.on_message(filters.command("clones") & SUDOERS)
-async def list_cloned_bots(client, message):
+async def list_cloned_bots(app, message):
     try:
         cloned_bots = clonebotdb.find()
         cloned_bots_list = await cloned_bots.to_list(length=None)
