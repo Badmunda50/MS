@@ -38,7 +38,6 @@ XCB = [
 
 def dbb():
     global db
-    global clonedb
     db = {}
     LOGGER(__name__).info(f"Local Database Initialized.")
 
