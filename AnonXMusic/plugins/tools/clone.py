@@ -10,7 +10,7 @@ from pyrogram.errors.exceptions.bad_request_400 import (
 from config import API_HASH, API_ID, LOGGER_ID
 from AnonXMusic import app
 from AnonXMusic.misc import SUDOERS
-from AnonXMusic.utils.database import, get_assistant
+from AnonXMusic.utils.database import get_assistant
 from AnonXMusic.core.mongo import mongodb
 
 CLONES = set()
