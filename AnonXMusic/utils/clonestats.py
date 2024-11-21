@@ -1,4 +1,4 @@
-from AnonXMusic.utils.core.mongo import mongodb
+from AnonXMusic.core.mongo import mongodb
 from config import OWNER_ID
 
 clonebotdb = mongodb.clonebotdb
