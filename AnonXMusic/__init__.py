@@ -29,7 +29,7 @@ async def get_clone_owner(bot_id):
 
 async def delete_clone_owner(bot_id):
     await cloneownerdb.delete_one({"bot_id": bot_id})
-    CLONE_OWNERS.pop(bot_id, None)
+    
 
 async def save_idclonebot_owner(clone_id, user_id):
     await cloneownerdb.update_one(
