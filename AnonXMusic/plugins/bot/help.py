@@ -1,5 +1,5 @@
 from typing import Union
-
+import random 
 from pyrogram import filters, types
 from pyrogram.types import InlineKeyboardMarkup, Message
 
@@ -10,6 +10,22 @@ from AnonXMusic.utils.decorators.language import LanguageStart, languageCB
 from AnonXMusic.utils.inline.help import help_back_markup, private_help_panel
 from config import BANNED_USERS, START_IMG_URL, SUPPORT_CHAT
 from strings import get_string, helpers
+
+Anon = [
+"https://graph.org/file/eaa3a2602e43844a488a5.jpg",
+"https://graph.org/file/b129e98b6e5c4db81c15f.jpg",
+"https://graph.org/file/3ccb86d7d62e8ee0a2e8b.jpg",
+"https://graph.org/file/df11d8257613418142063.jpg",
+"https://graph.org/file/9e23720fedc47259b6195.jpg",
+"https://graph.org/file/826485f2d7db6f09db8ed.jpg",
+"https://graph.org/file/ff3ad786da825b5205691.jpg",
+"https://graph.org/file/52713c9fe9253ae668f13.jpg",
+"https://graph.org/file/8f8516c86677a8c91bfb1.jpg",
+"https://graph.org/file/6603c3740378d3f7187da.jpg",
+"https://graph.org/file/66cb6ec40eea5c4670118.jpg",
+"https://graph.org/file/2e3cf4327b169b981055e.jpg",
+
+]
 
 
 @app.on_message(filters.command(["help"]) & filters.private & ~BANNED_USERS)
@@ -39,7 +55,7 @@ async def helper_private(
         _ = get_string(language)
         keyboard = help_pannel(_)
         await update.reply_photo(
-            photo=START_IMG_URL,
+            random.choice(Anon),
             caption=_["help_1"].format(SUPPORT_CHAT),
             reply_markup=keyboard,
         )
@@ -76,15 +92,3 @@ async def helper_cb(client, CallbackQuery, _):
         await CallbackQuery.edit_message_text(helpers.HELP_8, reply_markup=keyboard)
     elif cb == "hb9":
         await CallbackQuery.edit_message_text(helpers.HELP_9, reply_markup=keyboard)
-    elif cb == "hb10":
-        await CallbackQuery.edit_message_text(helpers.HELP_10, reply_markup=keyboard)
-    elif cb == "hb11":
-        await CallbackQuery.edit_message_text(helpers.HELP_11, reply_markup=keyboard)
-    elif cb == "hb12":
-        await CallbackQuery.edit_message_text(helpers.HELP_12, reply_markup=keyboard)
-    elif cb == "hb13":
-        await CallbackQuery.edit_message_text(helpers.HELP_13, reply_markup=keyboard)
-    elif cb == "hb14":
-        await CallbackQuery.edit_message_text(helpers.HELP_14, reply_markup=keyboard)
-    elif cb == "hb15":
-        await CallbackQuery.edit_message_text(helpers.HELP_15, reply_markup=keyboard)
