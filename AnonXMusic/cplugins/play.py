@@ -16,7 +16,7 @@ from AnonXMusic.utils import seconds_to_min, time_to_seconds
 from AnonXMusic.utils.channelplay import get_channeplayCB
 from AnonXMusic.utils.clonestats import add_served_cchat
 from AnonXMusic.utils.decorators.language import languageCB
-from AnonXMusic.utils.decorators.play import CPlayWrapper
+from AnonXMusic.utils.decorators.play import PlayWrapper
 from AnonXMusic.utils.formatters import formats
 from AnonXMusic.utils.inline import (
     botplaylist_markup,
