@@ -9,7 +9,6 @@ from AnonXMusic import LOGGER, app, userbot, load_clone_owners
 from AnonXMusic.core.call import Anony
 from AnonXMusic.misc import sudo
 from AnonXMusic.plugins import ALL_MODULES
-from AnonXMusic.plugins.tools.clone import restart_bots
 from AnonXMusic.utils.database import get_banned_users, get_gbanned
 from config import BANNED_USERS
 
