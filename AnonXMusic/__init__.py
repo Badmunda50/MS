@@ -13,7 +13,7 @@ async def load_clone_owners():
     async for entry in cloneownerdb.find():
         bot_id = entry["bot_id"]
         user_id = entry["user_id"]
-        CLONE_OWNERS[bot_id] = user_id
+        
 
 async def save_clonebot_owner(bot_id, user_id):
     await cloneownerdb.update_one(
