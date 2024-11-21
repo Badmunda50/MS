@@ -11,7 +11,7 @@ import config
 from pyrogram.types import BotCommand
 from config import API_HASH, API_ID, OWNER_ID
 from AnonXMusic import app, save_clonebot_owner
-from AninXMusic.misc import SUDOERS
+from AnonXMusic.misc import SUDOERS
 from AnonXMusic.core.mongo import mongodb
 
 CLONES = set()
