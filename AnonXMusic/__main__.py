@@ -22,7 +22,7 @@ async def init():
         and not config.STRING5
     ):
         LOGGER(__name__).error("Assistant client variables not defined, exiting...")
-        exit()
+        pass
     await sudo()
     try:
         users = await get_gbanned()
@@ -45,7 +45,7 @@ async def init():
         LOGGER("AnonXMusic").error(
             "Please turn on the videochat of your log group\channel.\n\nStopping Bot..."
         )
-        exit()
+        pass
     except:
         pass
     await Anony.decorators()
