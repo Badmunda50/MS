@@ -32,7 +32,7 @@ async def download_song(_, message: Message):
         user_last_message_time[user_id] = current_time
         user_command_count[user_id] = user_command_count.get(user_id, 0) + 1
         if user_command_count[user_id] > SPAM_THRESHOLD:
-            hu = await message.reply_text(f"**{message.from_user.mention} ᴘʟᴇᴀsᴇ ᴅᴏɴᴛ ᴅᴏ sᴘᴀᴍ, ᴀɴᴅ ᴛʀʏ ᴀɢᴀɪɴ ᴀғᴛᴇʀ 5 sᴇᴄ**")
+            hu = await message.reply_text(f"{message.from_user.mention} ᴘʟᴇᴀsᴇ ᴅᴏɴᴛ ᴅᴏ sᴘᴀᴍ, ᴀɴᴅ ᴛʀʏ ᴀɢᴀɪɴ ᴀғᴛᴇʀ 5 sᴇᴄ")
             await asyncio.sleep(3)
             await hu.delete()
             return
@@ -43,11 +43,11 @@ async def download_song(_, message: Message):
     # Extract query from the message
     query = " ".join(message.command[1:])
     if not query:
-        await message.reply("Please provide a song name or URL to search for.")
+        await message.reply("🔗 ᴘʟᴇᴀꜱᴇ ᴘʀᴏᴠɪᴅᴇ ᴀ ꜱᴏɴɢ ɴᴀᴍᴇ ᴏʀ ᴜʀʟ ᴛᴏ ꜱᴇᴀʀᴄʜ ꜰᴏʀ 🖇️")
         return
 
     # Searching for the song using YouTubeSearch
-    m = await message.reply("🔄 **Searching...**")
+    m = await message.reply("🔍ꜱᴇᴀʀᴄʜɪɴɢ...🔎")
     ydl_opts = {
         "format": "bestaudio[ext=m4a]",  # Options to download audio in m4a format
         "noplaylist": True,  # Don't download playlists
@@ -60,7 +60,7 @@ async def download_song(_, message: Message):
         # Search for the song
         results = YoutubeSearch(query, max_results=1).to_dict()
         if not results:
-            await m.edit("**⚠️ No results found. Please make sure you typed the correct song name.**")
+            await m.edit("😮‍💨 ɴᴏ ʀᴇꜱᴜʟᴛꜱ ꜰᴏᴜɴᴅ. ᴘʟᴇᴀꜱᴇ ᴍᴀᴋᴇ ꜱᴜʀᴇ ʏᴏᴜ ᴛʏᴘᴇᴅ ᴛʜᴇ ᴄᴏʀʀᴇᴄᴛ ꜱᴏɴɢ ɴᴀᴍᴇ ⚠️")
             return
 
         link = f"https://youtube.com{results[0]['url_suffix']}"
@@ -76,7 +76,7 @@ async def download_song(_, message: Message):
         channel_name = results[0]["channel"]
 
         # Now, download the audio using yt_dlp
-        await m.edit("📥 **Downloading...**")
+        await m.edit("💫 ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ...💫")
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
@@ -86,12 +86,12 @@ async def download_song(_, message: Message):
         dur = sum(int(x) * 60 ** i for i, x in enumerate(reversed(duration.split(":"))))
         
         # Sending the audio to the user
-        await m.edit("📤 **Uploading...**")
+        await m.edit("😍 ᴜᴘʟᴏᴀᴅɪɴɢ...🎉")
         await message.reply_audio(
             audio_file,
             thumb=thumb_name,
             title=title,
-            caption=f"{title}\nRequested by ➪ {message.from_user.mention}\nViews ➪ {views}\nChannel ➪ {channel_name}",
+            caption=f"{title}\nʀᴇQᴜᴇꜱᴛᴇᴅ ʙʏ ➪ {message.from_user.mention}\nᴠɪᴇᴡꜱ ➪ {views}\nᴄʜᴀɴɴᴇʟ ➪ {channel_name}",
             duration=dur
         )
 
@@ -101,5 +101,5 @@ async def download_song(_, message: Message):
         await m.delete()
 
     except Exception as e:
-        await m.edit("⚠️ **An error occurred!**")
+        await m.edit("🙂 ᴀɴ ᴇʀʀᴏʀ ᴏᴄᴄᴜʀʀᴇᴅ! ᴘᴍ @ll_BAD_MUNDA_ll ")
         print(f"Error: {str(e)}")
