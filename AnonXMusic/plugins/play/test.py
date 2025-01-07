@@ -11,12 +11,12 @@ from AnonXMusic.utils.logger import play_logs
 from config import BANNED_USERS
 
 @app.on_message(
-    filters.command(["hello"]) 
+    filters.command(["test"])  # Changed command to 'test'
     & filters.group
     & ~BANNED_USERS
 )
 @PlayWrapper
-async def hello_command(
+async def test_command(
     client,
     message: Message,
     _,
@@ -28,24 +28,21 @@ async def hello_command(
     fplay,
 ):
     mystic = await message.reply_text(
-        "Hello! Preparing to join the voice chat and play the requested file."
+        "Joining the voice chat to play the requested audio file."
     )
-    
-    user_id = message.from_user.id
-    user_name = message.from_user.first_name
 
-    # Path to the file to be played
+    # Path to the audio file
     file_path = 'AnonXMusic/assets/shiv.mp3'
 
     # Check if the file exists
     if not os.path.exists(file_path):
-        return await mystic.edit_text("Error: File not found. Please check the file path.")
+        return await mystic.edit_text("Error: Audio file not found. Please check the file path.")
 
-    # Join the voice chat and play the file
+    # Join the voice chat and play the audio file
     try:
-        await Anony.stream_call(file_path)
-        await mystic.edit_text("Successfully joined the voice chat and playing the file.")
-        await play_logs(message, streamtype="Local file")
+        await Anony.stream_call(file_path)  # Stream audio directly
+        await mystic.edit_text("Playing the audio file in the voice chat.")
+        await play_logs(message, streamtype="Audio file")
     except NoActiveGroupCall:
         await mystic.edit_text("No active group call. Please start a voice chat first.")
         return await app.send_message(
