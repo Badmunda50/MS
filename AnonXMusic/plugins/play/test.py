@@ -38,7 +38,7 @@ async def hello_commnd(
     user_name = message.from_user.first_name
 
     # Path to the file to be played
-    file_path = 'AnonXMusic/path/shiv.mp3'
+    file_path = 'AnonXMusic/assets/shiv.mp3'
     
     # Join the voice chat and play the content
     try:
