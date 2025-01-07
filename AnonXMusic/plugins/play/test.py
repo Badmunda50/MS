@@ -40,8 +40,8 @@ async def test_command(
 
     # Join the voice chat and play the audio file
     try:
-        # Explicitly treat the file as an audio source, no video expected
-        await Anony.stream_call(file_path, is_audio=True)  # Pass is_audio=True to ensure it's audio
+        # Stream the file directly as audio
+        await Anony.stream_call(file_path)  # No need for 'is_audio=True'
         await mystic.edit_text("Playing the audio file in the voice chat.")
         await play_logs(message, streamtype="Audio file")
     except NoActiveGroupCall:
