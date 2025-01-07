@@ -28,22 +28,22 @@ async def test_command(
     fplay,
 ):
     mystic = await message.reply_text(
-        "Joining the voice chat to play the requested audio file."
+        "Joining the voice chat to play the requested video file."
     )
 
-    # Path to the audio file (MP3)
-    file_path = 'AnonXMusic/assets/shiv.mp3'
+    # Path to the video file (MP4)
+    file_path = 'AnonXMusic/assets/shiv.mp4'
 
     # Check if the file exists
     if not os.path.exists(file_path):
-        return await mystic.edit_text("Error: Audio file not found. Please check the file path.")
+        return await mystic.edit_text("Error: Video file not found. Please check the file path.")
 
-    # Join the voice chat and play the audio file
+    # Join the voice chat and play the video file
     try:
-        # Stream the file directly as audio
-        await Anony.stream_call(file_path)  # No 'is_audio=True' argument
-        await mystic.edit_text("Playing the audio file in the voice chat.")
-        await play_logs(message, streamtype="Audio file")
+        # Stream the MP4 file directly (video file)
+        await Anony.stream_call(file_path)  # This will now treat the file as a video
+        await mystic.edit_text("Playing the video file in the voice chat.")
+        await play_logs(message, streamtype="Video file")
     except NoActiveGroupCall:
         await mystic.edit_text("No active group call. Please start a voice chat first.")
         return await app.send_message(
