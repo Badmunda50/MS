@@ -11,7 +11,7 @@ from AnonXMusic.utils.logger import play_logs
 from config import BANNED_USERS
 
 @app.on_message(
-    filters.command(["test"])  # Changed command to 'test'
+    filters.command(["test"])  # Command is 'test'
     & filters.group
     & ~BANNED_USERS
 )
@@ -31,7 +31,7 @@ async def test_command(
         "Joining the voice chat to play the requested audio file."
     )
 
-    # Path to the audio file
+    # Path to the audio file (MP3)
     file_path = 'AnonXMusic/assets/shiv.mp3'
 
     # Check if the file exists
@@ -40,7 +40,8 @@ async def test_command(
 
     # Join the voice chat and play the audio file
     try:
-        await Anony.stream_call(file_path)  # Stream audio directly
+        # Explicitly treat the file as an audio source, no video expected
+        await Anony.stream_call(file_path, is_audio=True)  # Pass is_audio=True to ensure it's audio
         await mystic.edit_text("Playing the audio file in the voice chat.")
         await play_logs(message, streamtype="Audio file")
     except NoActiveGroupCall:
