@@ -91,10 +91,10 @@ start_4 : "❖ <b>sᴜᴘᴇʀɢʀᴏᴜᴘ ɴᴇᴇᴅᴇᴅ</b> ❖\n\n● ᴘ
 start_6 : "❖ <b>🥀ᴛʀᴀᴄᴋ ɪɴғᴏʀᴍᴀᴛɪᴏɴ</b> ❖\n\n● <b>📌ᴛɪᴛʟᴇ ➥</b> {0}\n\n● <b>⏳ᴅᴜʀᴀᴛɪᴏɴ ➥</b> {1} ᴍɪɴᴜᴛᴇs\n● <b>👀ᴠɪᴇᴡs ➥</b> <code>{2}</code>\n● <b>⏰ᴩᴜʙʟɪsʜᴇᴅ ᴏɴ ➥</b> {3}\n● <b>ᴄʜᴀɴɴᴇʟ ➥</b> <a href={4}>{5}</a>\n\n● <b>sᴇᴀʀᴄʜ ᴩᴏᴡᴇʀᴇᴅ ʙʏ ➥ {6}</b>"
 start_7 : "ᴛʜᴇ ᴏᴡɴᴇʀ ᴏғ {0}, {1} ᴊᴜsᴛ ᴊᴏɪɴᴇᴅ ʏᴏᴜʀ ᴄʜᴀᴛ."
 start_8 : "ᴛʜᴇ sᴜᴅᴏ ᴜsᴇʀ ᴏғ {0}, {1} ᴊᴜsᴛ ᴊᴏɪɴᴇᴅ ʏᴏᴜʀ ᴄʜᴀᴛ."
-start_9 : "<blockquote><b>🎧ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴘs + ᴄʜᴀɴɴᴇʟs ᴠᴄ.🎧</b></blockquote>\n<blockquote><b>🎵 ᴘʟᴀʏ ᴍᴏᴅᴇꜱ:</b> /play | /vplay | /cplay | /cvplay\n<b>🎬 ꜰᴇᴀᴛᴜʀᴇꜱ:</b> ʜᴅ ꜱᴏɴɢꜱ, ᴠɪᴅᴇᴏꜱ, ᴅᴏᴡɴʟᴏᴀᴅꜱ.\n<b>🔐ᴜꜱᴇ »</b> /help ᴛᴏ ᴄʜᴇᴄᴋ ғᴇᴀᴛᴜʀᴇs.</blockquote>"
+start_9 : "<blockquote><b>⌬ ᴛʜɪs ɪs ᴀᴅᴠᴀɴᴄᴇᴅ ᴍᴜsɪᴄ ᴘʟᴀʏᴇʀ ʙᴏᴛ ғᴏʀ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴘs + ᴄʜᴀɴɴᴇʟs ᴠᴄ.</blockquote>\n<blockquote>❍ ᴘʟᴀʏ + ᴠᴘʟᴀʏ + ᴄᴘʟᴀʏ ..... ✓\n❍ ʟɪᴠᴇ ʀᴀᴅɪᴏ sᴜᴘᴘᴏʀᴛ ....... ✓\n❍ ᴀᴜᴛᴏ-ᴀᴘᴘʀᴏᴠᴇ ............... ✓\n❍ sᴏɴɢ ᴅᴏᴡ. ᴏʀ sᴛʀᴇᴀᴍ .... ✓\n❍ ʏᴏᴜᴛᴜʙᴇ sᴇᴀʀᴄʜ ᴇᴄᴛ ..... ✓</blockquote>\n<blockquote>🔐 ᴜɴʟᴏᴄᴋ /help ғᴏʀ ᴍᴏʀᴇ.</blockquote>\n<blockquote>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ @net_pro_max</b></blockquote>"
 
 
-help_1 : "<blockquote><b>❖ ᴄʜᴏᴏsᴇ ᴀ ᴄᴀᴛᴇɢᴏʀʏ ғᴏʀ ʜᴇʟᴘ.</b></blockquote>\n<blockquote><b>● ᴀsᴋ ᴅᴏᴜʙᴛs ➥ <a href={0}>sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ</a></b></blockquote>\n<blockquote><b>● ᴜsᴇ ᴄᴏᴍᴍᴀɴᴅs ᴡɪᴛʜ ➥ <code>/</code></b></blockquote>\n\n<blockquote><b>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ</b> ➥ @EraVibesXbot</blockquote>"
+help_1 : "<blockquote><b>❖ ᴄʜᴏᴏsᴇ ᴀ ᴄᴀᴛᴇɢᴏʀʏ ғᴏʀ ʜᴇʟᴘ.</b></blockquote>\n<blockquote><b>● ᴀsᴋ ᴅᴏᴜʙᴛs ➥ <a href={0}>sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ</a></b></blockquote>\n<blockquote><b>● ᴜsᴇ ᴄᴏᴍᴍᴀɴᴅs ᴡɪᴛʜ ➥ <code>/</code></b></blockquote>\n\n<blockquote><b>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ</b> ➥ @ShizuuMusicBot</blockquote>"
 help_2 : "<blockquote><b>❖ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ᴛᴏ ɢᴇᴛ ᴍʏ ʜᴇʟᴘ ᴍᴇɴᴜ ɪɴ ʏᴏᴜʀ ᴘᴍ.</b></blockquote>"
 
 lang_1 : "❖ ᴘʟᴇᴀsᴇ ᴄʜᴏᴏsᴇ ᴛʜᴇ ʟᴀɴɢᴜᴀɢᴇ ᴡʜɪᴄʜ ʏᴏᴜ ᴡᴀɴɴᴀ sᴇᴛ ᴀs ᴛʜɪs ɢʀᴏᴜᴘ's ᴅᴇғᴀᴜʟᴛ ʟᴀɴɢᴜᴀɢᴇ"
@@ -123,7 +123,7 @@ set_cb_5 : "❖ ɢᴇᴛᴛɪɴɢ ʙᴀᴄᴋ..."
 
 gstats_1 : "❖ ɢᴇᴛᴛɪɴɢ {0} sᴛᴀᴛs ᴀɴᴅ ɪɴғᴏʀᴍᴀᴛɪᴏɴ...\n\n● ɪᴛ ᴍᴀʏ ᴛᴀᴋᴇ ᴀ ᴡʜɪʟᴇ, ᴘʟᴇᴀsᴇ ʜᴏʟᴅ ᴏɴ..."
 gstats_2 : "❖ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ʙᴇʟᴏᴡ ᴛᴏ ᴄʜᴇᴄᴋ ᴛʜᴇ sᴛᴀᴛs ᴏғ ➥ {0}."
-gstats_3 : "<b>❖ ˹ ᴇʀᴀ ꭙ ᴠɪʙᴇs™ ♡゙゙ ʙᴏᴛ sᴛᴀᴛɪsᴛɪᴄs ❖</b>\n\n╭✠──────⊱◈◈⊰─────✠╮\n<b>│● ᴀssɪsᴛᴀɴᴛs ➥ </b> <code>{1}</code>\n<b>│● ʙʟᴏᴄᴋᴇᴅ ➥</b> <code>{2}</code>\n<b>│● ᴄʜᴀᴛs ➥ </b> <code>{3}</code>\n<b>│● ᴜsᴇʀs ➥ </b> <code>{4}</code>\n<b>│● ᴍᴏᴅᴜʟᴇs ➥ </b> <code>{5}</code>\n<b>│● sᴜᴅᴏᴇʀs ➥ </b> <code>{6}</code>\n╰✠──────⊱◈◈⊰──────✠╯\n\n<b>● ᴀᴜᴛᴏ ʟᴇᴀᴠɪɴɢ ᴀssɪsᴛᴀɴᴛ ➥</b> {7}\n<b>● ᴘʟᴀʏ ᴅᴜʀᴀᴛɪᴏɴ ʟɪᴍɪᴛ ➥</b> {8} ᴍɪɴᴜᴛᴇs\n\n❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ ˹ ᴇʀᴀ ꭙ ᴠɪʙᴇs™ ♡゙"
+gstats_3 : "<b>❖ ˹ sʜɪᴢᴜ ꭙ ᴍᴜsɪᴄ ♡゙゙ ʙᴏᴛ sᴛᴀᴛɪsᴛɪᴄs ❖</b>\n\n╭✠──────⊱◈◈⊰─────✠╮\n<b>│● ᴀssɪsᴛᴀɴᴛs ➥ </b> <code>{1}</code>\n<b>│● ʙʟᴏᴄᴋᴇᴅ ➥</b> <code>{2}</code>\n<b>│● ᴄʜᴀᴛs ➥ </b> <code>{3}</code>\n<b>│● ᴜsᴇʀs ➥ </b> <code>{4}</code>\n<b>│● ᴍᴏᴅᴜʟᴇs ➥ </b> <code>{5}</code>\n<b>│● sᴜᴅᴏᴇʀs ➥ </b> <code>{6}</code>\n╰✠──────⊱◈◈⊰──────✠╯\n\n<b>● ᴀᴜᴛᴏ ʟᴇᴀᴠɪɴɢ ᴀssɪsᴛᴀɴᴛ ➥</b> {7}\n<b>● ᴘʟᴀʏ ᴅᴜʀᴀᴛɪᴏɴ ʟɪᴍɪᴛ ➥</b> {8} ᴍɪɴᴜᴛᴇs\n\n❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ ˹ sʜɪᴢᴜ ꭙ ᴍᴜsɪᴄ ♡゙"
 gstats_4 : "❖ ᴛʜɪs ʙᴜᴛᴛᴏɴ ɪs ᴏɴʟʏ ғᴏʀ sᴜᴅᴏᴇʀs."
 gstats_5 : "<b>❖ {0} sᴛᴀᴛs ᴀɴᴅ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ⏤͟͟͞͞★</b>\n\n<b>● ᴍᴏᴅᴜʟᴇs ➥</b> <code>{1}</code>\n<b>● ᴘʟᴀᴛғᴏʀᴍ ➥</b> <code>{2}</code>\n<b>● ʀᴀᴍ ➥</b> <code>{3}</code>\n<b>● ᴘʜʏsɪᴄᴀʟ ᴄᴏʀᴇs ➥</b> <code>{4}</code>\n<b>● ᴛᴏᴛᴀʟ ᴄᴏʀᴇs ➥</b> <code>{5}</code>\n<b>● ᴄᴘᴜ ➥</b> <code>{6}</code>\n\n<b>● ᴘʏᴛʜᴏɴ ➥</b> <code>{7}</code>\n<b>● ᴘʏʀᴏɢʀᴀᴍ ➥</b> <code>{8}</code>\n<b>● ᴘʏ-ᴛɢᴄᴀʟʟs ➥</b> <code>{9}</code>\n\n<b>● sᴛᴏʀᴀɢᴇ ᴀᴠᴀɪʟᴀʙʟᴇ ➥</b> <code>{10} ɢɪʙ</code>\n<b>● sᴛᴏʀᴀɢᴇ ᴜsᴇᴅ ➥</b> <code>{11} ɢɪʙ</code>\n<b>● sᴛᴏʀᴀɢᴇ ʟᴇғᴛ ➥</b> <code>{12} ɢɪʙ</code>\n\n<b>● sᴇʀᴠᴇᴅ ᴄʜᴀᴛs ➥</b> <code>{13}</code>\n<b>● sᴇʀᴠᴇᴅ ᴜsᴇʀs ➥</b> <code>{14}</code>\n<b>● ʙʟᴏᴄᴋᴇᴅ ᴜsᴇʀs ➥</b> <code>{15}</code>\n<b>● sᴜᴅᴏ ᴜsᴇʀs ➥</b> <code>{16}</code>\n\n<b>● ᴛᴏᴛᴀʟ ᴅʙ sɪᴢᴇ ➥</b> <code>{17} ᴍʙ</code>\n<b>● ᴛᴏᴛᴀʟ ᴅʙ sᴛᴏʀᴀɢᴇ ➥</b> <code>{18} ᴍʙ</code>\n<b>● ᴛᴏᴛᴀʟ ᴅʙ ᴄᴏʟʟᴇᴄᴛɪᴏɴs ➥</b> <code>{19}</code>\n<b>● ᴛᴏᴛᴀʟ ᴅʙ ᴋᴇʏs ➥</b> <code>{20}</code>"
 
@@ -166,20 +166,19 @@ str_2 : "❖ ᴠᴀʟɪᴅ sᴛʀᴇᴀᴍ ᴠᴇʀɪғɪᴇᴅ.\n\n● ᴘʀᴏ
 str_3 : "❖ ғᴀɪʟᴇᴅ ᴛᴏ sᴛʀᴇᴀᴍ ʏᴏᴜᴛᴜʙᴇ ʟɪᴠᴇ sᴛʀᴇᴀᴍ, ɴᴏ ʟɪᴠᴇ ꜰᴏʀᴍᴀᴛ ꜰᴏᴜɴᴅ."
 
 ping_1 : "❖ {0} ɪs ᴘɪɴɢɪɴɢ..."
-ping_2 : "<blockquote><b>🏓 Eʀᴀ Vɪʙᴇs ɪs ᴀʟɪᴠᴇ ʙᴀʙʏ</b></blockquote>\n<blockquote>╭✠──────⊱◈◈◈⊰──────✠╮\n│<b>● ᴘɪɴɢ  ➥</b>  <code>{0}ᴍs</code>\n│<b>● ᴜᴘᴛɪᴍᴇ ➥</b> {2}\n│● ʀᴀᴍ  ➥ {3}\n│<b>● ᴄᴘᴜ ➥</b> {4}\n│<b>● ᴅɪsᴋ ➥</b> {5}\n│<b>● ᴘʏ-ᴛɢᴄᴀʟʟs ➥</b> <code>{6}ᴍs</code>\n╰✠──────⊱◈◈◈⊰──────✠╯</blockquote>\n<blockquote><b>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥</b> @EraVibesXbot</blockquote>"
+ping_2 : "<blockquote><b>🏓 sʜɪᴢᴜ ᴍᴜsɪᴄ ɪs ᴀʟɪᴠᴇ ʙᴀʙʏ</b></blockquote>\n<blockquote>╭✠──────⊱◈◈◈⊰──────✠╮\n│<b>● ᴘɪɴɢ  ➥</b>  <code>{0}ᴍs</code>\n│<b>● ᴜᴘᴛɪᴍᴇ ➥</b> {2}\n│● ʀᴀᴍ  ➥ {3}\n│<b>● ᴄᴘᴜ ➥</b> {4}\n│<b>● ᴅɪsᴋ ➥</b> {5}\n│<b>● ᴘʏ-ᴛɢᴄᴀʟʟs ➥</b> <code>{6}ᴍs</code>\n╰✠──────⊱◈◈◈⊰──────✠╯</blockquote>\n<blockquote><b>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥</b> @ShizuuMusicBot</blockquote>"
 
 queue_1 : "❖ ғᴇᴛᴄʜɪɴɢ ǫᴜᴇᴜᴇ...\n\nᴘʟᴇᴀsᴇ ᴡᴀɪᴛ..."
 queue_2 : "❖ ǫᴜᴇᴜᴇ ᴇᴍᴘᴛʏ."
 queue_3 : "❖ ᴄʟɪᴄᴋ ʜᴇʀᴇ ᴛᴏ ᴄʜᴇᴄᴋ ᴛʜᴇ ʟɪsᴛ ᴏғ ᴛʜᴇ ǫᴜᴇᴜᴇᴅ ᴛʀᴀᴄᴋs ➥ <a href={0}>ʜᴇʀᴇ</a>"
-queue_4 : "<b><blockquote>❖ ɴᴇxᴛ sᴏɴɢ ᴀᴅᴅᴇᴅ ɪɴ ǫᴜᴇᴜᴇ ➥ #{0}</b></blockquote>\n<blockquote>⊛<b> ᴛɪᴛʟᴇ ➥</b> {1}\n<b>⊛ ᴅᴜʀᴀᴛɪᴏɴ ➥</b> {2} ᴍɪɴᴜᴛᴇs\n<b>⊛ ʙʏ ➥</b> {3}</blockquote>\n<blockquote><b>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ @EraVibesXbot</b></blockquote>"
+queue_4 : "<b><blockquote>❖ ɴᴇxᴛ sᴏɴɢ ᴀᴅᴅᴇᴅ ɪɴ ǫᴜᴇᴜᴇ ➥ #{0}</b></blockquote>\n<blockquote>⊛<b> ᴛɪᴛʟᴇ ➥</b> {1}\n<b>⊛ ᴅᴜʀᴀᴛɪᴏɴ ➥</b> {2} ᴍɪɴᴜᴛᴇs\n<b>⊛ ʙʏ ➥</b> {3}</blockquote>\n<blockquote><b>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ @ShizuuMusicBot</b></blockquote>"
 queue_5 : "❖ ᴛʜᴇʀᴇ's ᴏɴʟʏ ᴏɴᴇ ǫᴜᴇᴜᴇᴅ ᴛʀᴀᴄᴋ ɪɴ ᴘʟᴀʏʟɪsᴛ.\n\n● ᴀᴅᴅ ᴍᴏʀᴇ ᴛʀᴀᴄᴋs ᴛᴏ ᴄʜᴇᴄᴋ ʟɪsᴛ."
 queue_6 : "<b>❖ ᴅᴜʀᴀᴛɪᴏɴ ➥</b> ᴜɴᴋɴᴏᴡɴ ᴅᴜʀᴀᴛɪᴏɴ sᴛʀᴇᴀᴍ\n\n● ᴄʟɪᴄᴋ ᴏɴ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ᴛᴏ ɢᴇᴛ ᴡʜᴏʟᴇ ǫᴜᴇᴜᴇᴅ ʟɪsᴛ."
 queue_7 : "\n❖ ᴄʟɪᴄᴋ ᴏɴ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ᴛᴏ ɢᴇᴛ ᴡʜᴏʟᴇ ǫᴜᴇᴜᴇᴅ ʟɪsᴛ."
 queue_8 : "<b>❖ {0} ᴘʟᴀʏᴇʀ</b> ❖\n\n● <b>sᴛʀᴇᴀᴍɪɴɢ ➥</b> {1}\n\n● <b>sᴛʀᴇᴀᴍ ᴛʏᴘᴇ ➥</b> {2}\n● <b>ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ ➥</b> {3}\n{4}"
 
-stream_1 : "<b><blockquote>❖ sᴛᴀʀᴛᴇᴅ sᴛʀᴇᴀᴍɪɴɢ</b></blockquote>\n<blockquote><b>⊛ ᴛɪᴛʟᴇ ➥</b> <a href={0}>{1}</a>\n<b>⊛ ᴅᴜʀᴀᴛɪᴏɴ ➥</b> {2} ᴍɪɴᴜᴛᴇs\n<b>⊛ ʙʏ ➥</b> {3}</blockquote>\n<blockquote><b>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ @EraVibesXbot</b></blockquote>"
-stream_2 : "<b><blockquote>❖ sᴛᴀʀᴛᴇᴅ sᴛʀᴇᴀᴍɪɴɢ</b></blockquote>\n<blockquote><b>⊛ sᴛʀᴇᴀᴍ ᴛʏᴘᴇ ➥</b> ʟɪᴠᴇ sᴛʀᴇᴀᴍ [ᴜʀʟ]\n<b>● ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ ➥</b> {0}</blockquote>\n<blockquote><b>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ @EraVibesXbot</b></blockquote>"
-
+stream_1 : "<b><blockquote>◈ sᴛᴀʀᴛᴇᴅ sᴛʀᴇᴀᴍɪɴɢ</b></blockquote>\n<blockquote><b>⊛ ᴛɪᴛʟᴇ ➥</b> <a href={0}>{1}</a>\n<b>⊛ ᴅᴜʀᴀᴛɪᴏɴ ➥</b> {2} ᴍɪɴᴜᴛᴇs\n<b>⊛ ʙʏ ➥</b> {3}</blockquote>\n<blockquote><b>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ @ShizuuMusicBot</b></blockquote>"
+stream_2 : "<b><blockquote>◈ sᴛᴀʀᴛᴇᴅ sᴛʀᴇᴀᴍɪɴɢ</b></blockquote>\n<blockquote><b>⊛ sᴛʀᴇᴀᴍ ᴛʏᴘᴇ ➥</b> ʟɪᴠᴇ sᴛʀᴇᴀᴍ [ᴜʀʟ]\n<b>⊛ ʙʏ ➥</b> {0}</blockquote>\n<blockquote><b>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ @ShizuuMusicBot</b></blockquote>"
 
 CLOSE_BUTTON  : "〆 ᴄʟᴏsᴇ 〆"
 BACK_BUTTON : "〆 ʙᴀᴄᴋ 〆"
@@ -298,10 +297,4 @@ gban_2 : "❖ ᴡʜʏ sʜᴏᴜʟᴅ ɪ ɢʙᴀɴ ᴍʏsᴇʟғ ?"
 gban_3 : "❖ ʏᴏᴜ ᴄᴀɴ'ᴛ ɢʙᴀɴ ᴍʏ sᴜᴅᴏᴇʀs."
 gban_4 : "❖ {0} ɪs ᴀʟʀᴇᴀᴅʏ ɢʟᴏʙᴀʟʟʏ ʙᴀɴɴᴇᴅ ғʀᴏᴍ ᴛʜᴇ ʙᴏᴛ."
 gban_5 : "❖ ɪɴɪᴛɪᴀʟɪᴢɪɴɢ ɢʟᴏʙᴀʟ ʙᴀɴ ᴏɴ {0}.\n\n<b>● ᴛɪᴍᴇ ᴇxᴘᴇᴄᴛᴇᴅ ➥</b> {1}"
-gban_6 : "<b>❖ ɴᴇᴡ ɢʟᴏʙᴀʟ ʙᴀɴ ᴏɴ {0} ➥</b>\n\n<b>● ᴏʀɪɢɪɴᴀᴛᴇᴅ ғʀᴏᴍ ➥</b> {1} [<code>{2}</code>]\n<b>● ᴜsᴇʀ :➥</b> {3}\n<b>● ᴜsᴇʀ ɪᴅ ➥</b> {4}\n\n<b>● ʙᴀɴɴᴇᴅ ʙʏ ➥</b> {5}\n<b>● ᴄʜᴀᴛs ➥</b> </code>{6}</code>"
-gban_7 : "❖ {0} ɪs ɴᴏᴛ ɢʙᴀɴɴᴇᴅ ғʀᴏᴍ ᴛʜᴇ ʙᴏᴛ."
-gban_8 : "❖ ʟɪғᴛɪɴɢ ɢʟᴏʙᴀʟ ʙᴀɴ ғʀᴏᴍ {0}.\n\n<b>● ᴇxᴘᴇᴄᴛᴇᴅ ᴛɪᴍᴇ ➥</b> {1}"
-gban_9 : "❖ ʟɪғᴛᴇᴅ ɢʟᴏʙᴀʟ ʙᴀɴ ғʀᴏᴍ {0}.\n\n● ᴜɴʙᴀɴɴᴇᴅ ɪɴ {1} ᴄʜᴀᴛs."
-gban_10 : "❖ ɴᴏ ᴏɴᴇ ɪs ɢʟᴏʙᴀʟʟʏ ʙᴀɴɴᴇᴅ ғʀᴏᴍ ᴛʜᴇ ʙᴏᴛ."
-gban_11 : "❖ ғᴇᴛᴄʜɪɴɢ ɢʙᴀɴɴᴇᴅ ᴜsᴇʀs ʟɪsᴛ..."
-gban_12 : "❖ <b>ɢʟᴏʙᴀʟʟʏ ʙᴀɴɴᴇᴅ ᴜsᴇʀs ➥</b>\n\n"
+gban_6 : "<b>❖ ɴᴇᴡ ɢʟᴏʙᴀʟ ʙᴀɴ ᴏɴ {0} ➥</b>\n\n<b>● ᴏʀɪɢɪɴᴀᴛᴇᴅ ғʀᴏᴍ ➥</b> {1} [<code>{2}</cod
