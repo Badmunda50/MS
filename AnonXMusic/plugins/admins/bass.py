@@ -105,4 +105,4 @@ async def adjust_bass(client, CallbackQuery, _):
     await mystic.edit_text(
         text=_["admin_34"].format(bass_level, CallbackQuery.from_user.mention),
         reply_markup=close_markup(_),
-            )
+    )
