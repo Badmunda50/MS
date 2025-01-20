@@ -22,13 +22,13 @@ async def bass_boost(cli, message: Message, _, chat_id):
         return await message.reply_text(_["queue_2"])
     duration_seconds = int(playing[0]["seconds"])
     if duration_seconds == 0:
-        return await message.reply_text(_["admin_27"])
+        return await message.reply_text(_["admin_41"])
     file_path = playing[0]["file"]
     if "downloads" not in file_path:
-        return await message.reply_text(_["admin_27"])
+        return await message.reply_text(_["admin_41"])
     upl = bass_markup(_, chat_id)
     return await message.reply_text(
-        text=_["admin_28"].format(app.mention),
+        text=_["admin_42"].format(app.mention),
         reply_markup=upl,
     )
 
@@ -55,39 +55,39 @@ async def adjust_bass(client, CallbackQuery, _):
         return await CallbackQuery.answer(_["queue_2"], show_alert=True)
     duration_seconds = int(playing[0]["seconds"])
     if duration_seconds == 0:
-        return await CallbackQuery.answer(_["admin_27"], show_alert=True)
+        return await CallbackQuery.answer(_["admin_41"], show_alert=True)
     file_path = playing[0]["file"]
     if "downloads" not in file_path:
-        return await CallbackQuery.answer(_["admin_27"], show_alert=True)
+        return await CallbackQuery.answer(_["admin_41"], show_alert=True)
     check_bass = (playing[0]).get("bass")
     if check_bass:
         if str(check_bass) == str(bass_level):
             if str(bass_level) == str("0"):
                 return await CallbackQuery.answer(
-                    _["admin_29"],
+                    _["admin_43"],
                     show_alert=True,
                 )
     else:
         if str(bass_level) == str("0"):
             return await CallbackQuery.answer(
-                _["admin_29"],
+                _["admin_43"],
                 show_alert=True,
             )
     if chat_id in checker:
         return await CallbackQuery.answer(
-            _["admin_30"],
+            _["admin_44"],
             show_alert=True,
         )
     else:
         checker.append(chat_id)
     try:
         await CallbackQuery.answer(
-            _["admin_31"],
+            _["admin_45"],
         )
     except:
         pass
     mystic = await CallbackQuery.edit_message_text(
-        text=_["admin_32"].format(CallbackQuery.from_user.mention),
+        text=_["admin_46"].format(CallbackQuery.from_user.mention),
     )
     try:
         await Anony.bass_boost_stream(
@@ -99,10 +99,10 @@ async def adjust_bass(client, CallbackQuery, _):
     except Exception as e:
         if chat_id in checker:
             checker.remove(chat_id)
-        return await mystic.edit_text(f"{_['admin_33']} Error: {str(e)}", reply_markup=close_markup(_))
+        return await mystic.edit_text(f"{_['admin_47']} Error: {str(e)}", reply_markup=close_markup(_))
     if chat_id in checker:
         checker.remove(chat_id)
     await mystic.edit_text(
-        text=_["admin_34"].format(bass_level, CallbackQuery.from_user.mention),
+        text=_["admin_48"].format(bass_level, CallbackQuery.from_user.mention),
         reply_markup=close_markup(_),
-    )
+        )
