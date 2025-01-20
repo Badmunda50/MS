@@ -113,6 +113,7 @@ HELP_8 = """
 HELP_9 = """
 <blockquote><b>❖ sᴘᴇᴇᴅ ᴄᴏᴍᴍᴀɴᴅs</b> ➥</blockquote>
 <blockquote>❍ /speed or /playback ➥ <i>ғᴏʀ ᴀᴅᴊᴜsᴛɪɴɢ ᴛʜᴇ ᴀᴜᴅɪᴏ ᴘʟᴀʏʙᴀᴄᴋ sᴘᴇᴇᴅ ɪɴ ɢʀᴏᴜᴘ.</i>
+<blockquote>❍ /bass ➥ <i>ғᴏʀ ᴀᴅᴊᴜsᴛɪɴɢ ᴛʜᴇ ᴀᴜᴅɪᴏ ᴘʟᴀʏʙᴀᴄᴋ ʙᴀss ɪɴ ɢʀᴏᴜᴘ.</i>
 ❍ /cspeed or /cplayback ➥ <i>ғᴏʀ ᴀᴅᴊᴜsᴛɪɴɢ ᴛʜᴇ ᴀᴜᴅɪᴏ ᴘʟᴀʏʙᴀᴄᴋ sᴘᴇᴇᴅ ɪɴ ᴄʜᴀɴɴᴇʟ.</i></blockquote>
 
 <blockquote>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ @ShizuuMusicBot</blockquote>
