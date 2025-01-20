@@ -6,11 +6,7 @@ from typing import Union
 from pyrogram import Client
 from pyrogram.types import InlineKeyboardMarkup
 from pytgcalls import PyTgCalls, StreamType
-from pytgcalls.exceptions import (
-    AlreadyJoinedError,
-    NoActiveGroupCall,
-    TelegramServerError,
-)
+from pytgcalls.exceptions import AlreadyJoinedError, NoActiveGroupCall, TelegramServerError
 from pytgcalls.types import Update
 from pytgcalls.types.input_stream import AudioPiped, AudioVideoPiped
 from pytgcalls.types.input_stream.quality import HighQualityAudio, MediumQualityVideo
@@ -217,8 +213,7 @@ class Call(PyTgCalls):
             db[chat_id][0]["speed_path"] = out
             db[chat_id][0]["speed"] = speed
 
-
-        async def bass_boost_stream(self, chat_id: int, file_path: str, bass_level: int, playing: dict):
+    async def bass_boost_stream(self, chat_id: int, file_path: str, bass_level: int, playing: dict):
         assistant = await group_assistant(self, chat_id)
         base = os.path.basename(file_path)
         chatdir = os.path.join(os.getcwd(), "playback", "bass")
@@ -312,6 +307,8 @@ class Call(PyTgCalls):
         )
         await asyncio.sleep(0.2)
         await assistant.leave_group_call(config.LOGGER_ID)
+
+
 
     async def join_call(
         self,
