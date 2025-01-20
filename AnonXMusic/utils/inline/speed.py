@@ -39,6 +39,8 @@ def speed_markup(_, chat_id):
     )
     return upl
 
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+
 def bass_markup(_, chat_id):
     upl = InlineKeyboardMarkup(
         [
@@ -70,8 +72,38 @@ def bass_markup(_, chat_id):
             ],
             [
                 InlineKeyboardButton(
+                    text="🔊 ×30",
+                    callback_data=f"BassUP {chat_id}|30",
+                ),
+                InlineKeyboardButton(
+                    text="🔊 ×40",
+                    callback_data=f"BassUP {chat_id}|40",
+                ),
+            ],
+            [
+                InlineKeyboardButton(
+                    text="🔊 ×50",
+                    callback_data=f"BassUP {chat_id}|50",
+                ),
+                InlineKeyboardButton(
+                    text="🔊 ×60",
+                    callback_data=f"BassUP {chat_id}|60",
+                ),
+            ],
+            [
+                InlineKeyboardButton(
+                    text="🔊 ×70",
+                    callback_data=f"BassUP {chat_id}|70",
+                ),
+                InlineKeyboardButton(
                     text="🔊 ×80",
                     callback_data=f"BassUP {chat_id}|80",
+                ),
+            ],
+            [
+                InlineKeyboardButton(
+                    text="🔊 ×90",
+                    callback_data=f"BassUP {chat_id}|90",
                 ),
             ],
             [
