@@ -78,9 +78,15 @@ async def adjust_bass(client, CallbackQuery, _):
     chat, bass_level = callback_request.split("|")
     chat_id = int(chat)
     
+    try:
+        # Respond to the callback query immediately to prevent it from expiring
+        await CallbackQuery.answer(_["admin_31"])
+    except Exception as e:
+        print(f"CallbackQuery answer failed: {e}")
+
     if not await is_active_chat(chat_id):
         return await CallbackQuery.answer(_["general_5"], show_alert=True)
-    
+
     is_non_admin = await is_nonadmin_chat(CallbackQuery.message.chat.id)
     if not is_non_admin:
         if CallbackQuery.from_user.id not in SUDOERS:
@@ -100,7 +106,6 @@ async def adjust_bass(client, CallbackQuery, _):
         new_file_path = apply_bass_boost(file_path, bass_level)
 
         # Restart Stream with New File
-        await CallbackQuery.answer(_["admin_31"])
         mystic = await CallbackQuery.edit_message_text(
             text=_["admin_32"].format(CallbackQuery.from_user.mention),
         )
@@ -115,4 +120,7 @@ async def adjust_bass(client, CallbackQuery, _):
         )
     except Exception as e:
         print(f"Error: {e}")
-        return await CallbackQuery.answer(_["admin_33"], show_alert=True)
+        try:
+            return await CallbackQuery.answer(_["admin_33"], show_alert=True)
+        except:
+            pass
