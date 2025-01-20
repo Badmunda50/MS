@@ -1,6 +1,5 @@
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-
 def speed_markup(_, chat_id):
     upl = InlineKeyboardMarkup(
         [
@@ -40,19 +39,16 @@ def speed_markup(_, chat_id):
     )
     return upl
 
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-
-
 def bass_markup(_, chat_id):
     upl = InlineKeyboardMarkup(
         [
             [
                 InlineKeyboardButton(
-                    text="🔉 +5",
+                    text="🔉 ×5",
                     callback_data=f"BassUP {chat_id}|5",
                 ),
                 InlineKeyboardButton(
-                    text="🔉 +10",
+                    text="🔉 ×10",
                     callback_data=f"BassUP {chat_id}|10",
                 ),
             ],
@@ -64,12 +60,18 @@ def bass_markup(_, chat_id):
             ],
             [
                 InlineKeyboardButton(
-                    text="🔊 +15",
+                    text="🔊 ×15",
                     callback_data=f"BassUP {chat_id}|15",
                 ),
                 InlineKeyboardButton(
-                    text="🔊 +20",
+                    text="🔊 ×20",
                     callback_data=f"BassUP {chat_id}|20",
+                ),
+            ],
+            [
+                InlineKeyboardButton(
+                    text="🔊 ×80",
+                    callback_data=f"BassUP {chat_id}|80",
                 ),
             ],
             [
