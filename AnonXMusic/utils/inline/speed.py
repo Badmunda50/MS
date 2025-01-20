@@ -57,7 +57,7 @@ def bass_markup(_, chat_id):
             [
                 InlineKeyboardButton(
                     text=_["P_B_4"] + " 00",  # Default Bass Level with 00 added
-                    callback_data=f"BassUP {chat_id}|0",
+                    callback_data=f"BassUP {chat_id}|1",
                 ),
             ],
             [
