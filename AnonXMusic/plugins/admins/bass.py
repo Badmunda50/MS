@@ -12,7 +12,6 @@ from config import BANNED_USERS, adminlist
 
 checker = []
 
-
 @app.on_message(
     filters.command(["cbass", "bass"]) & filters.group & ~BANNED_USERS
 )
@@ -32,7 +31,6 @@ async def bass_boost(cli, message: Message, _, chat_id):
         text=_["admin_28"].format(app.mention),
         reply_markup=upl,
     )
-
 
 @app.on_callback_query(filters.regex("BassUP") & ~BANNED_USERS)
 @languageCB
@@ -98,13 +96,13 @@ async def adjust_bass(client, CallbackQuery, _):
             bass_level,
             playing,
         )
-    except:
+    except Exception as e:
         if chat_id in checker:
             checker.remove(chat_id)
-        return await mystic.edit_text(_["admin_33"], reply_markup=close_markup(_))
+        return await mystic.edit_text(f"{_['admin_33']} Error: {str(e)}", reply_markup=close_markup(_))
     if chat_id in checker:
         checker.remove(chat_id)
     await mystic.edit_text(
         text=_["admin_34"].format(bass_level, CallbackQuery.from_user.mention),
         reply_markup=close_markup(_),
-    )
+            )
