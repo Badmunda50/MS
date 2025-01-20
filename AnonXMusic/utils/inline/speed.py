@@ -46,64 +46,58 @@ def bass_markup(_, chat_id):
         [
             [
                 InlineKeyboardButton(
-                    text="🔉 ×5",
-                    callback_data=f"BassUP {chat_id}|5",
-                ),
-                InlineKeyboardButton(
-                    text="🔉 ×10",
+                    text="🔉 10×",
                     callback_data=f"BassUP {chat_id}|10",
                 ),
-            ],
-            [
                 InlineKeyboardButton(
-                    text=_["P_B_4"],  # Default Bass Level (e.g., 0)
-                    callback_data=f"BassUP {chat_id}|0",
-                ),
-            ],
-            [
-                InlineKeyboardButton(
-                    text="🔊 ×15",
-                    callback_data=f"BassUP {chat_id}|15",
-                ),
-                InlineKeyboardButton(
-                    text="🔊 ×20",
+                    text="🔉 20×",
                     callback_data=f"BassUP {chat_id}|20",
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    text="🔊 ×30",
+                    text=_["P_B_4"] + " 00",  # Default Bass Level with 00 added
+                    callback_data=f"BassUP {chat_id}|0",
+                ),
+            ],
+            [
+                InlineKeyboardButton(
+                    text="🔊 30×",
                     callback_data=f"BassUP {chat_id}|30",
                 ),
                 InlineKeyboardButton(
-                    text="🔊 ×40",
+                    text="🔊 40×",
                     callback_data=f"BassUP {chat_id}|40",
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    text="🔊 ×50",
+                    text="🔊 50×",
                     callback_data=f"BassUP {chat_id}|50",
                 ),
                 InlineKeyboardButton(
-                    text="🔊 ×60",
+                    text="🔊 60×",
                     callback_data=f"BassUP {chat_id}|60",
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    text="🔊 ×70",
+                    text="🔊 70×",
                     callback_data=f"BassUP {chat_id}|70",
                 ),
                 InlineKeyboardButton(
-                    text="🔊 ×80",
+                    text="🔊 80×",
                     callback_data=f"BassUP {chat_id}|80",
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    text="🔊 ×90",
+                    text="🔊 90×",
                     callback_data=f"BassUP {chat_id}|90",
+                ),
+                InlineKeyboardButton(
+                    text="🔊 100×",
+                    callback_data=f"BassUP {chat_id}|100",
                 ),
             ],
             [
