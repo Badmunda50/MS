@@ -9,7 +9,7 @@ from AnonXMusic import LOGGER, app, userbot
 from AnonXMusic.core.call import Anony
 from AnonXMusic.misc import sudo
 from AnonXMusic.plugins import ALL_MODULES
-from AnonXMusic.plugins.tools import restart_bots
+from AnonXMusic.plugins.tools.clone import restart_bots
 from AnonXMusic.utils.database import get_banned_users, get_gbanned
 from config import BANNED_USERS
 
@@ -48,6 +48,11 @@ async def init():
         )
         pass
     except:
+        pass
+    try:
+        await restart_bots()
+    except Exception as ex:
+        await app.send_message(int(OWNER_ID), f"Error in restarting cloned bots:- \n\n {ex}")
         pass
     await Anony.decorators()
     LOGGER("AnonXMusic").info(
