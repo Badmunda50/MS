@@ -4,6 +4,7 @@ import importlib
 from pyrogram import idle
 from pytgcalls.exceptions import NoActiveGroupCall
 
+import config
 from config import OWNER_ID
 from AnonXMusic import LOGGER, app, userbot
 from AnonXMusic.core.call import Anony
