@@ -7,7 +7,7 @@ from pyrogram.types import InlineKeyboardMarkup, InputMediaPhoto, Message
 from pytgcalls.exceptions import NoActiveGroupCall
 from AnonXMusic.utils.database import get_assistant
 import config
-from AnonXMusic import Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app
+from AnonXMusic import Apple, Resso, SoundCloud, Spotify, Telegram, YouTube
 from AnonXMusic.core.call import Anony
 from AnonXMusic.misc import SUDOERS
 from AnonXMusic.utils.inline import panel_markup_clone
