@@ -1,25 +1,10 @@
-# Import statements
-from pymongo import MongoClient
-
-# Define the clonebotdb
-client = MongoClient('mongodb+srv://BADMUNDA:BADMYDAD@badhacker.i5nw9na.mongodb.net/')
-db = client['anonmusic ']
-clonebotdb = db['clonebotdb']
-
-# Define the has_user_cloned_any_bot function
-async def has_user_cloned_any_bot(user_id):
-    return clonebotdb.find_one({"user_id": user_id}) is not None
-
-# Define the CLONE_LOGGER
-CLONE_LOGGER = -1002056907061  # Replace with your actual logger ID
-
-# Rest of your code
 import re
 import logging
 import asyncio
 import importlib
 from sys import argv
 from pyrogram import idle
+from pymongo import MongoClient
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors.exceptions.bad_request_400 import (
@@ -36,6 +21,19 @@ from datetime import datetime
 import requests
 from AnonXMusic.utils.database import get_assistant
 from AnonXMusic.utils.decorators.language import language
+
+# Define the clonebotdb
+client = MongoClient('mongodb+srv://BADMUNDA:BADMYDAD@badhacker.i5nw9na.mongodb.net/')
+db = client['anonmusic ']
+clonebotdb = db['clonebotdb']
+
+# Define the has_user_cloned_any_bot function
+async def has_user_cloned_any_bot(user_id):
+    return clonebotdb.find_one({"user_id": user_id}) is not None
+
+# Define the CLONE_LOGGER
+CLONE_LOGGER = -1002056907061  # Replace with your actual logger ID
+
 
 CLONES = set()
 
@@ -79,7 +77,7 @@ async def clone_txt(client, message, _):
                 API_ID,
                 API_HASH,
                 bot_token=bot_token,
-                plugins=dict(root="AnonXMusic.plugins.cplugin"), 
+                plugins=dict(root="AnonXMusic.cplugin"), 
             )
             await ai.start()
             bot = await ai.get_me()
@@ -212,7 +210,7 @@ async def restart_bots():
                 API_ID,
                 API_HASH,
                 bot_token=bot_token,
-                plugins=dict(root="AnonXMusic.plugins.cplugin"),
+                plugins=dict(root="AnonXMusic.cplugin"),
             )
             await ai.start()
 
