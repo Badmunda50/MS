@@ -24,7 +24,7 @@ from AnonXMusic.utils.decorators.language import language
 
 # Define the clonebotdb
 client = MongoClient('mongodb+srv://BADMUNDA:BADMYDAD@badhacker.i5nw9na.mongodb.net/')
-db = client['anonmusic ']
+db = client['anonmusic']
 clonebotdb = db['clonebotdb']
 
 # Define the has_user_cloned_any_bot function
