@@ -190,7 +190,7 @@ def panel_markup_clone(_, vidid, chat_id):
         [
             InlineKeyboardButton(
                 text=_["S_B_5"],
-                url=f"https://t.me/{client.me.username}?startgroup=true",
+                url=f"https://t.me/ShizuuMusicBot?startgroup=true",
             ),
         ],
         [
