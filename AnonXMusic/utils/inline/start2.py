@@ -3,7 +3,7 @@ from pyrogram import filters, Client
 
 import config
 
-def start_panel(client):
+def start_panel(client: Client):
     buttons = [
         [
             InlineKeyboardButton(
@@ -14,7 +14,7 @@ def start_panel(client):
     ]
     return buttons
 
-def private_panel(client):
+def private_panel(client: Client):
     user_id = client.get_me().id
     buttons = [
         [
