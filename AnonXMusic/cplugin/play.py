@@ -1,7 +1,7 @@
 import random
 import string
 
-from pyrogram import filters
+from pyrogram import filters, Client
 from pyrogram.types import InlineKeyboardMarkup, InputMediaPhoto, Message
 from pytgcalls.exceptions import NoActiveGroupCall
 
