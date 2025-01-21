@@ -79,7 +79,7 @@ async def clone_txt(client, message, _):
                 API_ID,
                 API_HASH,
                 bot_token=bot_token,
-                plugins=dict(root="AnonXMusic.cplugin"), 
+                plugins=dict(root="AnonXMusic.plugins.cplugin"), 
             )
             await ai.start()
             bot = await ai.get_me()
@@ -212,7 +212,7 @@ async def restart_bots():
                 API_ID,
                 API_HASH,
                 bot_token=bot_token,
-                plugins=dict(root="AnonXMusic.cplugin"),
+                plugins=dict(root="AnonXMusic.plugins.cplugin"),
             )
             await ai.start()
 
