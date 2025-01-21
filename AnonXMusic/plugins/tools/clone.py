@@ -1,6 +1,8 @@
 import re
+import time
 import logging
 import asyncio
+import threading
 import importlib
 from sys import argv
 from pyrogram import idle
@@ -240,6 +242,13 @@ async def restart_bots():
     except Exception as e:
         logging.exception("Error while restarting bots.")
 
+def schedule_restart():
+    while True:
+        time.sleep(43200)  # Sleep for 12 hours (43200 seconds)
+        asyncio.run(restart_bots())
+
+# Start the background thread to schedule restarts
+threading.Thread(target=schedule_restart, daemon=True).start()
 
 @app.on_message(filters.command("clonedinfo") & filters.user(OWNER_ID))
 @language
