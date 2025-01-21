@@ -1,12 +1,11 @@
 import time
 import random 
-from pyrogram import filters
+from pyrogram import filters, Client
 from pyrogram.enums import ChatType
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from youtubesearchpython.__future__ import VideosSearch
 
 import config
-from AnonXMusic import app
 from AnonXMusic.misc import _boot_
 from AnonXMusic.plugins.sudo.sudoers import sudoers_list
 from AnonXMusic.utils.database import (
@@ -72,7 +71,7 @@ IMAGE = [
 
 
 
-@app.on_message(filters.command(["start"]) & filters.private & ~BANNED_USERS)
+@Client.on_message(filters.command(["start"]) & filters.private & ~BANNED_USERS)
 @LanguageStart
 async def start_pm(client, message: Message, _):
     await add_served_user_clone(message.from_user.id)
@@ -88,7 +87,7 @@ async def start_pm(client, message: Message, _):
         if name[0:3] == "sud":
             await sudoers_list(client=client, message=message, _=_)
             if await is_on_off(2):
-                return await app.send_message(
+                return await Client.send_message(
                     chat_id=config.LOGGER_ID,
                     text=f"❖ {message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>sᴜᴅᴏʟɪsᴛ</b>.\n\n<b>● ᴜsᴇʀ ɪᴅ ➥</b> <code>{message.from_user.id}</code>\n<b>● ᴜsᴇʀɴᴀᴍᴇ ➥</b> @{message.from_user.username}",
                 )
@@ -108,7 +107,7 @@ async def start_pm(client, message: Message, _):
                 link = result["link"]
                 published = result["publishedTime"]
             searched_text = _["start_6"].format(
-                title, duration, views, published, channellink, channel, app.mention
+                title, duration, views, published, channellink, channel, Client.mention
             )
             key = InlineKeyboardMarkup(
                 [
@@ -119,14 +118,14 @@ async def start_pm(client, message: Message, _):
                 ]
             )
             await m.delete()
-            await app.send_photo(
+            await Client.send_photo(
                 chat_id=message.chat.id,
                 photo=thumbnail,
                 caption=searched_text,
                 reply_markup=key,
             )
             if await is_on_off(2):
-                return await app.send_message(
+                return await Client.send_message(
                     chat_id=config.LOGGER_ID,
                     text=f"❖ {message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>ᴛʀᴀᴄᴋ ɪɴғᴏʀᴍᴀᴛɪᴏɴ</b>.\n\n<b>● ᴜsᴇʀ ɪᴅ ➥</b> <code>{message.from_user.id}</code>\n<b>● ᴜsᴇʀɴᴀᴍᴇ ➥</b> @{message.from_user.username}",
                 )
@@ -134,30 +133,30 @@ async def start_pm(client, message: Message, _):
         out = private_panel(_)
         await message.reply_photo(
             random.choice(IMAGE),
-            caption=_["start_2"].format(message.from_user.mention, app.mention),
+            caption=_["start_2"].format(message.from_user.mention, Client.mention),
             reply_markup=InlineKeyboardMarkup(out),
         )
         if await is_on_off(2):
-            return await app.send_message(
+            return await Client.send_message(
                 chat_id=config.LOGGER_ID,
                 text=f"❖ {message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ.\n\n<b>● ᴜsᴇʀ ɪᴅ ➥</b> <code>{message.from_user.id}</code>\n<b>● ᴜsᴇʀɴᴀᴍᴇ ➥</b> @{message.from_user.username}",
             )
 
 
-@app.on_message(filters.command(["start"]) & filters.group & ~BANNED_USERS)
+@Client.on_message(filters.command(["start"]) & filters.private & ~BANNED_USERS)
 @LanguageStart
 async def start_gp(client, message: Message, _):
     out = start_panel(_)
     uptime = int(time.time() - _boot_)
     await message.reply_photo(
         random.choice(IMAGE),
-        caption=_["start_1"].format(app.mention, get_readable_time(uptime)),
+        caption=_["start_1"].format(Client.mention, get_readable_time(uptime)),
         reply_markup=InlineKeyboardMarkup(out),
     )
     return await add_served_chat_clone(message.chat.id)
 
 
-@app.on_message(filters.new_chat_members, group=-1)
+@Client.on_message(filters.new_chat_members, group=-1)
 async def welcome(client, message: Message):
     for member in message.new_chat_members:
         try:
@@ -168,29 +167,29 @@ async def welcome(client, message: Message):
                     await message.chat.ban_member(member.id)
                 except:
                     pass
-            if member.id == app.id:
+            if member.id == Client.id:
                 if message.chat.type != ChatType.SUPERGROUP:
                     await message.reply_text(_["start_4"])
-                    return await app.leave_chat(message.chat.id)
+                    return await Client.leave_chat(message.chat.id)
                 if message.chat.id in await blacklisted_chats():
                     await message.reply_text(
                         _["start_5"].format(
-                            app.mention,
-                            f"https://t.me/{app.username}?start=sudolist",
+                            Client.mention,
+                            f"https://t.me/{Client.username}?start=sudolist",
                             config.SUPPORT_CHAT,
                         ),
                         disable_web_page_preview=True,
                     )
-                    return await app.leave_chat(message.chat.id)
+                    return await Client.leave_chat(message.chat.id)
 
                 out = start_panel(_)
                 await message.reply_photo(
                     random.choice(IMAGE),
                     caption=_["start_3"].format(
                         message.from_user.first_name,
-                        app.mention,
+                        Client.mention,
                         message.chat.title,
-                        app.mention,
+                        Client.mention,
                     ),
                     reply_markup=InlineKeyboardMarkup(out),
                 )
@@ -198,4 +197,5 @@ async def welcome(client, message: Message):
                 await message.stop_propagation()
         except Exception as ex:
             print(ex)
+            
             
