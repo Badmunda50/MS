@@ -1,6 +1,6 @@
 from typing import Union
 import random 
-from pyrogram import filters, types
+from pyrogram import filters, types, Client
 from pyrogram.types import InlineKeyboardMarkup, Message
 
 from AnonXMusic.utils import help_pannel
