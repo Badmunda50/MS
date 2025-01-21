@@ -194,51 +194,38 @@ async def restart_bots():
     global CLONES
     try:
         logging.info("Restarting all cloned bots...")
-        bots = list(clonebotdb.find())
-        for bot in bots:
-            bot_token = bot["token"]
+        bots = [bot async for bot in clonebotdb.find()]
+        
+        semaphore = asyncio.Semaphore(10) 
 
-            # Check if the bot token is valid
-            url = f"https://api.telegram.org/bot{bot_token}/getMe"
-            response = requests.get(url)
-            if response.status_code != 200:
-                logging.error(f"Invalid or expired token for bot: {bot_token}")
-                continue  # Skip this bot and move to the next one
-
-            ai = Client(
-                f"{bot_token}",
-                API_ID,
-                API_HASH,
-                bot_token=bot_token,
-                plugins=dict(root="AnonXMusic.cplugin"),
-            )
-            await ai.start()
-
-            # Set bot's "Description" AutoMatically On Every Restart
-            def set_bot_desc():
-                url = f"https://api.telegram.org/bot{bot_token}/setMyDescription"
-                params = {"description": C_BOT_DESC}
-                response = requests.post(url, data=params)
-                if response.status_code == 200:
-                    logging.info(f"Successfully updated Description for bot: {bot_token}")
-                else:
-                    logging.error(f"Failed to update Description: {response.text}")
-
-            # set_bot_desc()
-
-            bot = await ai.get_me()
-            if bot.id not in CLONES:
+        async def restart_bot(bot):
+            async with semaphore: 
+                bot_token = bot["token"]
+                ai = Client(bot_token, API_ID, API_HASH, bot_token=bot_token, plugins=dict(root="nexichat/mplugin"))
                 try:
-                    CLONES.add(bot.id)
-                except Exception:
-                    pass
-            await asyncio.sleep(5)
+                    await ai.start()
+                    bot_info = await ai.get_me()
+                    await ai.set_bot_commands([
+                        BotCommand("start", "Start the bot"),
+                        BotCommand("help", "Get the help menu"),
+                    ])
 
-        await app.send_message(
-            CLONE_LOGGER, "All Cloned Bots Started!"
-        )
+                    if bot_info.id not in CLONES:
+                        CLONES.add(bot_info.id)
+                        
+                except (AccessTokenExpired, AccessTokenInvalid):
+                    await clonebotdb.delete_one({"token": bot_token})
+                    logging.info(f"Removed expired or invalid token for bot ID: {bot['bot_id']}")
+                except Exception as e:
+                    logging.exception(f"Error while restarting bot with token {bot_token}: {e}")
+                    await app.send_message(OWNER_ID, f"**Error In Restart Cloned Bots...**\n\n**Error:** {e}")
+        
+        await asyncio.gather(*(restart_bot(bot) for bot in bots))
+        
     except Exception as e:
         logging.exception("Error while restarting bots.")
+        await app.send_message(OWNER_ID, f"**Remove The Bot token from cloned:**\n\n`{bot_token}`\n\n**Error:** {e}")
+        
 
 
 @app.on_message(filters.command("clonedinfo") & filters.user(OWNER_ID))
