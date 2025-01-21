@@ -1,5 +1,5 @@
 import time
-import random 
+import random
 from pyrogram import filters, Client
 from pyrogram.enums import ChatType
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
@@ -53,7 +53,7 @@ IMAGE = [
 "https://graph.org/file/39d7277189360d2c85b62.jpg",
 "https://graph.org/file/5846b9214eaf12c3ed100.jpg",
 "https://graph.org/file/ad4f9beb4d526e6615e18.jpg",
-"https://graph.org/file/3514efaabe774e4f181f2.jpg",  
+"https://graph.org/file/3514efaabe774e4f181f2.jpg",
 "https://graph.org/file/eaa3a2602e43844a488a5.jpg",
 "https://graph.org/file/b129e98b6e5c4db81c15f.jpg",
 "https://graph.org/file/3ccb86d7d62e8ee0a2e8b.jpg",
@@ -65,11 +65,8 @@ IMAGE = [
 "https://graph.org/file/8f8516c86677a8c91bfb1.jpg",
 "https://graph.org/file/6603c3740378d3f7187da.jpg",
 "https://graph.org/file/66cb6ec40eea5c4670118.jpg",
-"https://graph.org/file/2e3cf4327b169b981055e.jpg",   
-
+"https://graph.org/file/2e3cf4327b169b981055e.jpg",
 ]
-
-
 
 @Client.on_message(filters.command(["start"]) & filters.private & ~BANNED_USERS)
 @LanguageStart
@@ -87,9 +84,9 @@ async def start_pm(client, message: Message, _):
         if name[0:3] == "sud":
             await sudoers_list(client=client, message=message, _=_)
             if await is_on_off(2):
-                return await Client.send_message(
+                return await client.send_message(
                     chat_id=config.LOGGER_ID,
-                    text=f"❖ {message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>sᴜᴅᴏʟɪsᴛ</b>.\n\n<b>● ᴜsᴇʀ ɪᴅ ➥</b> <code>{message.from_user.id}</code>\n<b>● ᴜsᴇʀɴᴀᴍᴇ ➥</b> @{message.from_user.username}",
+                    text=f"❖ {message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>sᴜᴅᴏʟɪsᴛ</b>.\n\n<b>● ᴜsᴇʀ ɪᴅ ➥</b> <code>{message.from_user.id}</code>",
                 )
             return
         if name[0:3] == "inf":
@@ -107,7 +104,7 @@ async def start_pm(client, message: Message, _):
                 link = result["link"]
                 published = result["publishedTime"]
             searched_text = _["start_6"].format(
-                title, duration, views, published, channellink, channel, Client.mention
+                title, duration, views, published, channellink, channel, client.me.mention
             )
             key = InlineKeyboardMarkup(
                 [
@@ -118,30 +115,29 @@ async def start_pm(client, message: Message, _):
                 ]
             )
             await m.delete()
-            await Client.send_photo(
+            await client.send_photo(
                 chat_id=message.chat.id,
                 photo=thumbnail,
                 caption=searched_text,
                 reply_markup=key,
             )
             if await is_on_off(2):
-                return await Client.send_message(
+                return await client.send_message(
                     chat_id=config.LOGGER_ID,
-                    text=f"❖ {message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>ᴛʀᴀᴄᴋ ɪɴғᴏʀᴍᴀᴛɪᴏɴ</b>.\n\n<b>● ᴜsᴇʀ ɪᴅ ➥</b> <code>{message.from_user.id}</code>\n<b>● ᴜsᴇʀɴᴀᴍᴇ ➥</b> @{message.from_user.username}",
+                    text=f"❖ {message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>ᴛʀᴀᴄᴋ ɪɴғᴏʀᴍᴀᴛɪᴏɴ</b>.\n\n<b>● ᴜsᴇʀ ɪᴅ ➥</b> <code>{message.from_user.id}</code>",
                 )
     else:
         out = private_panel(_)
         await message.reply_photo(
             random.choice(IMAGE),
-            caption=_["start_2"].format(message.from_user.mention, Client.mention),
+            caption=_["start_2"].format(message.from_user.mention, client.me.mention),
             reply_markup=InlineKeyboardMarkup(out),
         )
         if await is_on_off(2):
-            return await Client.send_message(
+            return await client.send_message(
                 chat_id=config.LOGGER_ID,
-                text=f"❖ {message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ.\n\n<b>● ᴜsᴇʀ ɪᴅ ➥</b> <code>{message.from_user.id}</code>\n<b>● ᴜsᴇʀɴᴀᴍᴇ ➥</b> @{message.from_user.username}",
+                text=f"❖ {message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ.\n\n<b>● ᴜsᴇʀ ɪᴅ ➥</b> <code>{message.from_user.id}</code>",
             )
-
 
 @Client.on_message(filters.command(["start"]) & filters.private & ~BANNED_USERS)
 @LanguageStart
@@ -150,11 +146,10 @@ async def start_gp(client, message: Message, _):
     uptime = int(time.time() - _boot_)
     await message.reply_photo(
         random.choice(IMAGE),
-        caption=_["start_1"].format(Client.mention, get_readable_time(uptime)),
+        caption=_["start_1"].format(client.me.mention, get_readable_time(uptime)),
         reply_markup=InlineKeyboardMarkup(out),
     )
     return await add_served_chat_clone(message.chat.id)
-
 
 @Client.on_message(filters.new_chat_members, group=-1)
 async def welcome(client, message: Message):
@@ -167,29 +162,29 @@ async def welcome(client, message: Message):
                     await message.chat.ban_member(member.id)
                 except:
                     pass
-            if member.id == Client.id:
+            if member.id == client.me.id:
                 if message.chat.type != ChatType.SUPERGROUP:
                     await message.reply_text(_["start_4"])
-                    return await Client.leave_chat(message.chat.id)
+                    return await client.leave_chat(message.chat.id)
                 if message.chat.id in await blacklisted_chats():
                     await message.reply_text(
                         _["start_5"].format(
-                            Client.mention,
-                            f"https://t.me/{Client.username}?start=sudolist",
+                            client.me.mention,
+                            f"https://t.me/{client.me.username}?start=sudolist",
                             config.SUPPORT_CHAT,
                         ),
                         disable_web_page_preview=True,
                     )
-                    return await Client.leave_chat(message.chat.id)
+                    return await client.leave_chat(message.chat.id)
 
                 out = start_panel(_)
                 await message.reply_photo(
                     random.choice(IMAGE),
                     caption=_["start_3"].format(
                         message.from_user.first_name,
-                        Client.mention,
+                        client.me.mention,
                         message.chat.title,
-                        Client.mention,
+                        client.me.mention,
                     ),
                     reply_markup=InlineKeyboardMarkup(out),
                 )
@@ -197,5 +192,3 @@ async def welcome(client, message: Message):
                 await message.stop_propagation()
         except Exception as ex:
             print(ex)
-            
-            
