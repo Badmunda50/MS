@@ -27,6 +27,13 @@ from AnonXMusic.utils.inline import help_pannel, private_panel, start_panel
 from config import BANNED_USERS, OWNER_ID
 from strings import get_string
 
+
+#--------------------------
+# Assuming the _ dictionary is set up in strings.py or a similar file
+_ = {
+    "c_start_2": "Welcome {0}, you are chatting with {1}.",
+    # Other keys...
+}
 #--------------------------
 
 NEXI_VID = [
