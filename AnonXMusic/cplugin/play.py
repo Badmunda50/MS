@@ -38,6 +38,7 @@ from config import BANNED_USERS, lyrical
 from time import time
 from AnonXMusic.utils.extraction import extract_user
 
+from config import YOUTUBE_IMG_URL
 from PIL import Image, ImageDraw, ImageEnhance
 from PIL import ImageFilter, ImageFont, ImageOps
 
