@@ -9,7 +9,7 @@ HELP_1 = """
 ⦿ /loop [enable/disable] ➥ <i>ᴇɴᴀʙʟᴇs/ᴅɪsᴀʙʟᴇs ʟᴏᴏᴘ ғᴏʀ ᴛʜᴇ ᴏɴɢᴏɪɴɢ sᴛʀᴇᴀᴍ.</i>
 ⦿ /loop [1, 2, 3, ...] ➥ <i>ᴇɴᴀʙʟᴇs ᴛʜᴇ ʟᴏᴏᴘ ғᴏʀ ᴛʜᴇ ɢɪᴠᴇɴ ᴠᴀʟᴜᴇ.</i>
 </blockquote>
-<blockquote>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ @ShizuuMusicBot</blockquote>
+<blockquote>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ @PBX_CHAT</blockquote>
 """
 
 HELP_2 = """
@@ -22,7 +22,7 @@ HELP_2 = """
 <blockquote>❍ /seek [ᴅᴜʀᴀᴛɪᴏɴ ɪɴ sᴇᴄᴏɴᴅs] ➥ <i>sᴇᴇᴋ ᴛʜᴇ sᴛʀᴇᴀᴍ ᴛᴏ ᴛʜᴇ ɢɪᴠᴇɴ ᴅᴜʀᴀᴛɪᴏɴ.</i>
 ❍ /seekback [ᴅᴜʀᴀᴛɪᴏɴ ɪɴ sᴇᴄᴏɴᴅs] ➥ <i>ʙᴀᴄᴋᴡᴀʀᴅ sᴇᴇᴋ ᴛʜᴇ sᴛʀᴇᴀᴍ ᴛᴏ ᴛʜᴇ ᴛʜᴇ ɢɪᴠᴇɴ ᴅᴜʀᴀᴛɪᴏɴ.</i></blockquote>
 
-<blockquote>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ @ShizuuMusicBot</blockquote>
+<blockquote>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ @PBX_CHAT</blockquote>
 """
 
 HELP_3 = """
@@ -36,7 +36,7 @@ HELP_3 = """
 ❍ <b>-nobot</b> ➥ <i>ғᴏʀᴄᴇs ᴛʜᴇ ʙᴏᴛ ᴛᴏ ɴᴏᴛ ʙʀᴏᴀᴅᴄᴀsᴛ ᴛʜᴇ ᴍᴇssᴀɢᴇ..</i></blockquote>
 <blockquote>❍ <b>ᴇxᴀᴍᴩʟᴇ ➥</b> <code>/broadcast -user -assistant -pin ᴛᴇsᴛɪɴɢ ʙʀᴏᴀᴅᴄᴀsᴛ</code></blockquote>
 
-<blockquote>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ @ShizuuMusicBot</blockquote>
+<blockquote>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ @PBX_CHAT</blockquote>
 """
 
 HELP_4 = """
@@ -61,7 +61,7 @@ HELP_4 = """
 ❍ /maintenance [on/off] ➥ <i>ᴇɴᴀʙʟᴇ ᴏʀ ᴅɪsᴀʙʟᴇ ᴛʜᴇ ᴍᴀɪɴᴛᴇɴᴀɴᴄᴇ ᴍᴏᴅᴇ ᴏғ ʏᴏᴜʀ ʙᴏᴛ.</i></blockquote>
 
 
-<blockquote>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ @ShizuuMusicBot</blockquote>
+<blockquote>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ @PBX_CHAT</blockquote>
 """
 
 HELP_5 = """
@@ -71,7 +71,7 @@ HELP_5 = """
 ❍ /ping ➥ <i>sʜᴏᴡs ᴛʜᴇ ᴩɪɴɢ ᴀɴᴅ sʏsᴛᴇᴍ sᴛᴀᴛs ᴏғ ᴛʜᴇ ʙᴏᴛ.</i>
 ❍ /stats ➥ <i>sʜᴏᴡs ᴛʜᴇ ᴏᴠᴇʀᴀʟʟ sᴛᴀᴛs ᴏғ ᴛʜᴇ ʙᴏᴛ.</i></blockquote>
 
-<blockquote>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ @ShizuuMusicBot</blockquote>
+<blockquote>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ @PBX_CHAT</blockquote>
 
 """
 
@@ -88,7 +88,7 @@ HELP_6 = """
 <b>✧ /cplayback</b> - ғᴏʀ ᴀᴅᴊᴜsᴛɪɴɢ ᴛʜᴇ ᴀᴜᴅɪᴏ ᴘʟᴀʏʙᴀᴄᴋ sᴘᴇᴇᴅ ɪɴ ᴄʜᴀɴɴᴇʟ.</i></blockquote>
 
 
-<blockquote>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ @ShizuuMusicBot</blockquote>
+<blockquote>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ @PBX_CHAT</blockquote>
 """
 
 HELP_7 = """
@@ -96,7 +96,7 @@ HELP_7 = """
 <blockquote>❍ /shuffle ➥ <i>sʜᴜғғʟᴇ's ᴛʜᴇ ᴏ̨ᴜᴇᴜᴇ.</i>
 ❍ /queue ➥ <i>sʜᴏᴡs ᴛʜᴇ sʜᴜғғʟᴇᴅ ᴏ̨ᴜᴇᴜᴇ.</i></blockquote>
 
-<blockquote>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ @ShizuuMusicBot</blockquote>
+<blockquote>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ @PBX_CHAT</blockquote>
 """
 
 HELP_8 = """
@@ -108,7 +108,7 @@ HELP_8 = """
 ❍ /yt [sᴏɴɢ ɴᴀᴍᴇ] ➥ <i>youtube search</i>
 ❍ /img ᴏʀ /image ➥ <i>ɪᴍᴀɢᴇ sᴇᴀʀᴄʜ</i></blockquote>
 
-<blockquote>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ @ShizuuMusicBot</blockquote>
+<blockquote>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ @PBX_CHAT</blockquote>
 """
 
 HELP_9 = """
@@ -116,5 +116,5 @@ HELP_9 = """
 <blockquote>❍ /speed or /playback ➥ <i>ғᴏʀ ᴀᴅᴊᴜsᴛɪɴɢ ᴛʜᴇ ᴀᴜᴅɪᴏ ᴘʟᴀʏʙᴀᴄᴋ sᴘᴇᴇᴅ ɪɴ ɢʀᴏᴜᴘ.</i>
 ❍ /cspeed or /cplayback ➥ <i>ғᴏʀ ᴀᴅᴊᴜsᴛɪɴɢ ᴛʜᴇ ᴀᴜᴅɪᴏ ᴘʟᴀʏʙᴀᴄᴋ sᴘᴇᴇᴅ ɪɴ ᴄʜᴀɴɴᴇʟ.</i></blockquote>
 
-<blockquote>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ @ShizuuMusicBot</blockquote>
+<blockquote>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ @PBX_CHAT</blockquote>
 """
