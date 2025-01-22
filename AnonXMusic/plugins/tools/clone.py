@@ -34,10 +34,9 @@ async def has_user_cloned_any_bot(user_id):
 # Define the CLONE_LOGGER
 CLONE_LOGGER = -1002056907061  # Replace with your actual logger ID
 
-
 CLONES = set()
 
-C_BOT_DESC = "Wᴀɴᴛ ᴀ ʙᴏᴛ ʟɪᴋᴇ ᴛʜɪs? Cʟᴏɴᴇ ɪᴛ ɴᴏᴡ! ✅\n\nVɪsɪt: @ShizuuMusicBot ᴛᴏ ɢᴇᴛ sᴛᴀʀᴛᴇᴅ!\n\n - Uᴘᴅᴀᴛᴇ: @PBX_CHAT \n - Sᴜᴘᴘᴏʀᴛ: @ll_THE_BAD_BOT_ll "
+C_BOT_DESC = "Wᴀɴᴛ ᴀ ʙᴏᴛ ʟɪᴋᴇ ᴛʜɪs? Cʟᴏɴᴇ ɪᴛ ɴᴏᴡ! ✅\n\nVɪsɪt: @ShizuuMusicBot ᴛᴏ ɢᴇᴛ sᴛᴀʀᴛᴇᴅ!\n\n - Uᴘᴅᴀᴛᴇ: @PBX_CHAT \n - Sᴜᴘ[...]
 
 C_BOT_COMMANDS = [
     {"command": "/start", "description": "sᴛᴀʀᴛs ᴛʜᴇ ᴍᴜsɪᴄ ʙᴏᴛ"},
@@ -48,7 +47,7 @@ C_BOT_COMMANDS = [
     {"command": "/skip", "description": "sᴋɪᴘ ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ ᴩʟᴀʏɪɴɢ sᴛʀᴇᴀᴍ ᴀɴᴅ sᴛᴀʀᴛ ᴛʜᴇ ɴᴇxᴛ ᴛʀᴀᴄᴋ."},
     {"command": "/end", "description": "ᴄʟᴇᴀʀs ᴛʜᴇ ǫᴜᴇᴜᴇ ᴀɴᴅ ᴇɴᴅ ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ ᴩʟᴀʏɪɴɢ sᴛʀᴇᴀᴍ."},
     {"command": "/ping", "description": "ᴄʜᴇᴄᴋ ᴛʜᴇ ᴩɪɴɢ ᴀɴᴅ sʏsᴛᴇᴍ sᴛᴀᴛs ᴏғ ᴛʜᴇ ʙᴏᴛ."},
-    {"command": "/id", "description": "ɢᴇᴛ ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ ɢʀᴏᴜᴘ ɪᴅ. ɪғ ᴜsᴇᴅ ʙʏ ʀᴇᴩʟʏɪɴɢ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ, ɢᴇᴛs ᴛʜᴇ ɪᴅ ᴏғ ᴛʜᴀᴛ ᴍᴇssᴀɢᴇ."}
+    {"command": "/id", "description": "ɢᴇᴛ ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ ɢʀᴏᴜᴘ ɪᴅ. ɪғ ᴜsᴇᴅ ʙʏ ʀᴇᴩʟʏɪɴɢ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ, ɢᴇᴛs ᴛʜᴇ ɪᴅ ᴏғ ᴛ[...]
 ]
 
 @app.on_message(filters.command("clone"))
@@ -100,7 +99,7 @@ async def clone_txt(client, message, _):
         await mi.edit_text("Bot cloning successful!")
         try:
             await app.send_message(
-                CLONE_LOGGER, f"**#NewClonedBot**\n\n**Bᴏᴛ:- {bot.mention}**\n**Usᴇʀɴᴀᴍᴇ:** @{bot.username}\n**Bᴏᴛ ID :** `{bot_id}`\n\n**Oᴡɴᴇʀ : ** [{c_b_owner_fname}](tg://user?id={c_bot_owner})"
+                CLONE_LOGGER, f"**#NewClonedBot**\n\n**Bᴏᴛ:- {bot.mention}**\n**Usᴇʀɴᴀᴍᴇ:** @{bot.username}\n**Bᴏᴛ ID :** `{bot_id}`\n\n**Oᴡɴᴇʀ : ** [{c_b_owner_fname}](tg://us[...]
             )
             await userbot.send_message(bot.username, "/start")
 
@@ -128,20 +127,6 @@ async def clone_txt(client, message, _):
                 print(response.json())
 
             set_bot_commands()
-
-            # Set bot's "Description" AutoMatically On Every Restart
-            def set_bot_desc():
-                url = f"https://api.telegram.org/bot{bot_token}/setMyDescription"
-                params = {"description": C_BOT_DESC}
-                response = requests.post(url, data=params)
-                if response.status_code == 200:
-                    logging.info(f"Successfully updated Description for bot: {bot_token}")
-                else:
-                    logging.error(f"Failed to update Description: {response.text}")
-
-            set_bot_desc()
-
-            #set bot info ----------------------------
 
             await mi.edit_text(f"Bot @{bot.username} cloned successfully!")
         except BaseException as e:
@@ -213,18 +198,6 @@ async def restart_bots():
                 plugins=dict(root="AnonXMusic.cplugin"),
             )
             await ai.start()
-
-            # Set bot's "Description" AutoMatically On Every Restart
-            def set_bot_desc():
-                url = f"https://api.telegram.org/bot{bot_token}/setMyDescription"
-                params = {"description": C_BOT_DESC}
-                response = requests.post(url, data=params)
-                if response.status_code == 200:
-                    logging.info(f"Successfully updated Description for bot: {bot_token}")
-                else:
-                    logging.error(f"Failed to update Description: {response.text}")
-
-            # set_bot_desc()
 
             bot = await ai.get_me()
             if bot.id not in CLONES:
