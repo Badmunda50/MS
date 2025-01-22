@@ -15,7 +15,7 @@ links = {}
 @Client.on_chat_member_updated()
 async def auto_join_on_admin_status(client, chat_member_update: ChatMemberUpdated):
     if (
-        chat_member_update.new_chat_member.user.id == client.id  # Fixed Client.id to client.id
+        chat_member_update.new_chat_member.user.id == client.me.id  # Fixed Client.id to client.me.id
         and chat_member_update.new_chat_member.status == ChatMemberStatus.ADMINISTRATOR
     ):
         chat_id = chat_member_update.chat.id
@@ -50,7 +50,7 @@ async def join_group(client, message):
     await asyncio.sleep(1)
 
     # Check bot's admin status
-    chat_member = await client.get_chat_member(chat_id, client.id)  # Fixed Client.get_chat_member to client.get_chat_member
+    chat_member = await client.get_chat_member(chat_id, client.me.id)  # Fixed Client.get_chat_member to client.me.id
 
     if chat_member.status == ChatMemberStatus.ADMINISTRATOR:
         try:
@@ -104,7 +104,7 @@ async def join_group(client, message):
                     pass
             except Exception as e:
                 await done.edit_text(
-                    "**ғᴀɪʟᴇᴅ ᴛᴏ ᴊᴏɪɴ, ᴘʟᴇᴀsᴇ ɢɪᴠᴇ ʙᴀɴ ᴘᴏᴡᴇʀ ᴀɴᴅ ɪɴᴠɪᴛᴇ ᴜsᴇʀ ᴘᴏᴡᴇʀ ᴏʀ ᴜɴʙᴀɴ ᴀssɪsᴛᴀɴᴛ manually.**"
+                    "**ғᴀɪʟᴇᴅ ᴛᴏ ᴊᴏɪɴ, ᴘʟᴇᴀsᴇ ɢɪᴠᴇ ʙᴀɴ ᴘᴏᴡᴇʀ ᴀɴᴅ ɪɴᴠɪᴛᴇ ᴜsᴇʀ ᴘᴏᴡᴇʀ ᴏʀ ᴜɴʙᴀɴ ᴀssɪsᴛᴀɴᴛ.**"
                 )
         return
 
@@ -145,7 +145,7 @@ async def join_group(client, message):
                 pass
         except Exception as e:
             await done.edit_text(
-                f"**➻ ᴀᴄᴛᴜᴀʟʟʏ ɪ ғᴏᴜɴᴅ ᴛʜᴀᴛ ᴍʏ ᴀssɪsᴛᴀɴᴛ ʜᴀs ɴᴏᴛ ᴊᴏɪɴ ᴛʜɪs ɢʀᴏᴜᴘ ᴀɴᴅ ɪ ᴀᴍ ɴᴏᴛ ᴀʙʟᴇ ᴛᴏ ɪɴᴠɪᴛᴇ ᴍʏsᴇʟғ.**"
+                f"**➻ ᴀᴄᴛᴜᴀʟʟʏ ɪ ғᴏᴜɴᴅ ᴛʜᴀᴛ ᴍʏ ᴀssɪsᴛᴀɴᴛ ʜᴀs ɴᴏᴛ ᴊᴏɪɴᴇᴅ ᴛʜɪs ɢʀᴏᴜᴘ ᴀɴᴅ ɪ ᴀᴍ ɴᴏᴛ ᴀʙʟᴇ ᴛᴏ ɪɴᴠɪᴛᴇ ɪᴛ.**"
             )
 
     # Condition 6: Group username is not present/group is private, bot is admin and Userbot is banned
@@ -179,7 +179,7 @@ async def join_group(client, message):
 
             except Exception as e:
                 await done.edit_text(
-                    f"**➻ ᴀᴄᴛᴜᴀʟʟʏ ɪ ғᴏᴜɴᴅ ᴛʜᴀᴛ ᴍʏ ᴀssɪsᴛᴀɴᴛ ɪs ʙᴀɴɴᴇᴅ ɪɴ ᴛʜɪs ɢʀᴏᴜᴘ ᴀɴᴅ ɪ ᴀᴍ ɴᴏᴛ ᴀʙʟᴇ ᴛᴏ ᴜɴʙᴀɴ ᴍʏsᴇʟғ.**"
+                    f"**➻ ᴀᴄᴛᴜᴀʟʟʏ ɪ ғᴏᴜɴᴅ ᴛʜᴀᴛ ᴍʏ ᴀssɪsᴛᴀɴᴛ ɪs ʙᴀɴɴᴇᴅ ɪɴ ᴛʜɪs ɢʀᴏᴜᴘ ᴀɴᴅ ɪ ᴀᴍ ɴᴏᴛ ᴀʙʟᴇ ᴛᴏ ᴜɴʙᴀɴ ɪᴛ.**"
                 )
         return
 
