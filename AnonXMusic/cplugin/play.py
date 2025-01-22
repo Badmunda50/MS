@@ -1274,6 +1274,46 @@ async def get_thumb(videoid):
         logox = ImageOps.expand(bg_logo, border=7, fill=f"{border}")
         background = changeImageSize(1280, 720, logox)
 
+        draw = ImageDraw.Draw(background)
+        arial = ImageFont.truetype("AnonXMusic/assets/font2.ttf", 30)
+        font = ImageFont.truetype("AnonXMusic/assets/font.ttf", 30)
+        draw.text(
+            (10, 10),
+            f"{channel} | {views[:23]}",
+            (255, 255, 255),
+            font=arial,
+        )
+        draw.text(
+            (10, 50),
+            clear(title),
+            (255, 255, 255),
+            font=font,
+        )
+        draw.line(
+            [(10, 90), (1270, 90)],
+            fill="white",
+            width=2,
+            joint="curve",
+        )
+        draw.ellipse(
+            [(10, 100), (50, 140)],
+            outline="white",
+            fill="white",
+            width=2,
+        )
+        draw.text(
+            (10, 150),
+            "00:00",
+            (255, 255, 255),
+            font=arial,
+        )
+        draw.text(
+            (10, 190),
+            f"{duration[:23]}",
+            (255, 255, 255),
+            font=arial,
+        )
+        
         try:
             os.remove(f"cache/thumb{videoid}.png")
         except:
