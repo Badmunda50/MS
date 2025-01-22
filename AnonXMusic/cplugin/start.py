@@ -21,7 +21,6 @@ from AnonXMusic.utils.clonedb import (
 from AnonXMusic.utils.decorators.language import LanguageStart
 from AnonXMusic.utils.formatters import get_readable_time
 from AnonXMusic.utils.inline import help_pannel, private_panel, start_panel
-from AnonXMusic.utils.inline.start2 import private_panel as start2_private_panel, start_panel as start2_start_panel
 from config import BANNED_USERS
 from strings import get_string
 
@@ -87,7 +86,7 @@ async def start_pm(client, message: Message, _):
             if await is_on_off(2):
                 return await client.send_message(
                     chat_id=config.LOGGER_ID,
-                    text=f"❖ {message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>sᴜᴅᴏʟɪsᴛ</b>.\n\n<b>● ᴜsᴇʀ ɪᴅ ➥</b> <code>{message.from_user.id}</code>\n<b>● ᴜsᴇʀɴᴀᴍᴇ ➥</b> @{message.from_user.username}",
+                    text=f"❖ {message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>sᴜᴅᴏʟɪsᴛ</b>.\n\n<b>● ᴜsᴇʀ ɪᴅ ➥</b> <code>{message.from_user.id}</code>",
                 )
             return
         if name[0:3] == "inf":
@@ -128,7 +127,7 @@ async def start_pm(client, message: Message, _):
                     text=f"❖ {message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>ᴛʀᴀᴄᴋ ɪɴғᴏʀᴍᴀᴛɪᴏɴ</b>.\n\n<b>● ᴜsᴇʀ ɪᴅ ➥</b> <code>{message.from_user.id}</code>",
                 )
     else:
-        out = start2_private_panel(_, message.from_user.id)  # Add user_id argument here
+        out = private_panel(_)
         await message.reply_photo(
             random.choice(IMAGE),
             caption=_["start_2"].format(message.from_user.mention, client.me.mention),
@@ -143,7 +142,7 @@ async def start_pm(client, message: Message, _):
 @Client.on_message(filters.command(["start"]) & filters.private & ~BANNED_USERS)
 @LanguageStart
 async def start_gp(client, message: Message, _):
-    out = start2_start_panel(_)
+    out = start_panel(_)
     uptime = int(time.time() - _boot_)
     await message.reply_photo(
         random.choice(IMAGE),
@@ -178,7 +177,7 @@ async def welcome(client, message: Message):
                     )
                     return await client.leave_chat(message.chat.id)
 
-                out = start2_start_panel(_)
+                out = start_panel(_)
                 await message.reply_photo(
                     random.choice(IMAGE),
                     caption=_["start_3"].format(
