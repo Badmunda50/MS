@@ -1259,8 +1259,9 @@ async def get_thumb(videoid):
             async with session.get(thumbnail) as resp:
                 if resp.status == 200:
                     f = await aiofiles.open(f"cache/thumb{videoid}.png", mode="wb")
-                    await f.write(await resp.read())
-                    await f.close()
+                    if f is not None:
+                        await f.write(await resp.read())
+                        await f.close()
 
         colors = ["white", "red", "orange", "yellow", "green", "cyan", "azure", "blue", "violet", "magenta", "pink"]
         border = random.choice(colors)
