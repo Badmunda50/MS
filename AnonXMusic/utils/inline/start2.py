@@ -1,11 +1,8 @@
 from pyrogram.types import InlineKeyboardButton
 from pyrogram import filters, Client
 
-from pyrogram.types import InlineKeyboardButton
-
 import config
 from AnonXMusic import app
-
 
 def start_panel(_):
     buttons = [
@@ -18,8 +15,7 @@ def start_panel(_):
     ]
     return buttons
 
-
-def private_panel(_):
+def private_panel(_, user_id):
     buttons = [
         [
             InlineKeyboardButton(
