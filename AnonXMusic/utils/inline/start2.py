@@ -38,7 +38,7 @@ def private_panel(_, user_id):
             )
         ],
         [
-            InlineKeyboardButton(text=_["S_B_5"], url=f"https://t.me/{cloner_username}"
+            InlineKeyboardButton(text=_["S_B_5"], url=f"https://t.me/{cloner_username}"),
             InlineKeyboardButton(text=_["S_B_2"], url=config.SUPPORT_CHAT),
         ],
        [InlineKeyboardButton(text=_["S_B_4"], callback_data="settings_back_helper")],
