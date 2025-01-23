@@ -689,3 +689,12 @@ async def add_served_chat_clone(chat_id: int):
 
 async def delete_served_chat_clone(chat_id: int):
     await chatsdbc.delete_one({"chat_id": chat_id})
+
+async def set_assistant_with_session(chat_id, bot_id, string_session):
+    assistantdict[chat_id] = bot_id
+    await assdb.update_one(
+        {"chat_id": chat_id},
+        {"$set": {"assistant": bot_id, "string_session": string_session}},
+        upsert=True,
+    )
+    return bot_id
