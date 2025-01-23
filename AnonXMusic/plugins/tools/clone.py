@@ -36,7 +36,7 @@ CLONE_LOGGER = -1002056907061  # Replace with your actual logger ID
 
 CLONES = set()
 
-C_BOT_DESC = "Wᴀɴᴛ ᴀ ʙᴏᴛ ʟɪᴋᴇ ᴛʜɪs? Cʟᴏɴᴇ ɪᴛ ɴᴏᴡ! ✅\n\nVɪsɪt: @ShizuuMusicBot ᴛᴏ ɢᴇᴛ sᴛᴀʀᴛᴇᴅ!\n\n - Uᴘᴅᴀᴛᴇ: @PBX_CHAT "
+C_BOT_DESC = "Wᴀɴᴛ ᴀ ʙᴏᴛ ʟɪᴋᴇ ᴛʜɪs? Cʟᴏɴᴇ ɪᴛ ɴᴏᴡ! ✅\n\nVɪsɪt: @ShizuuMusicBot ᴛᴏ ɢᴇᴛ sᴛᴀʀᴛᴇᴅ!\n\n - Uᴘᴅᴀᴛᴇ: @PBX_CHAT"
 
 C_BOT_COMMANDS = [
     {"command": "/start", "description": "sᴛᴀʀᴛs ᴛʜᴇ ᴍᴜsɪᴄ ʙᴏᴛ"},
@@ -74,7 +74,7 @@ async def clone_txt(client, message, _):
 
         try:
             ai = Client(
-                session_name=string_session,
+                session_string=string_session,
                 api_id=API_ID,
                 api_hash=API_HASH,
                 bot_token=bot_token,
@@ -195,9 +195,8 @@ async def restart_bots():
                 continue  # Skip this bot and move to the next one
 
             ai = Client(
-                f"{bot_token}",
-                API_ID,
-                API_HASH,
+                api_id=API_ID,
+                api_hash=API_HASH,
                 bot_token=bot_token,
                 plugins=dict(root="AnonXMusic.cplugin"),
             )
