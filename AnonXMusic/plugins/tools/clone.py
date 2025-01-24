@@ -108,7 +108,7 @@ async def clone_txt(client, message, _):
         await mi.edit_text("Bot cloning successful!")
         try:
             await app.send_message(
-                CLONE_LOGGER, f"**#NewClonedBot**\n\n**Bᴏᴛ:- {bot.mention}**\n**Usᴇʀɴᴀᴍᴇ:** @{bot.username}\n**Bᴏᴛ ID :** `{bot_id}`\n\n**Oᴡɴᴇʀ : ** [{c_b_owner_fname}](tg://user?id={c_bot_owner})"
+                CLONE_LOGGER, f"**#NewClonedBot**\n\n**Bᴏᴛ:- {bot.mention}**\n**Usᴇʀɴᴀᴍᴇ:** @{bot.username}\n**Bᴏᴛ ID :** `{bot_id}`\n\n**Oᴡɴᴇʀ : ** [{c_b_owner_fname}](tg://us[...]
             )
             await ai.send_message(bot.username, "/start")
 
@@ -187,7 +187,7 @@ async def restart_bots():
     global CLONES
     try:
         logging.info("Restarting all cloned bots...")
-        bots = list(clonebotdb.find())
+        bots = list(clonebotdb.find() or [])
         for bot in bots:
             bot_token = bot.get("token")  # Use .get() to avoid KeyError
 
@@ -229,7 +229,7 @@ async def restart_bots():
 @language
 async def list_cloned_bots_info(client, message, _):
     try:
-        cloned_bots = list(clonebotdb.find())
+        cloned_bots = list(clonebotdb.find() or [])
         if not cloned_bots:
             await message.reply_text("No cloned bots found.")
             return
@@ -272,7 +272,7 @@ async def delete_all_cloned_bots(client, message, _):
 async def my_cloned_bots(client, message, _):
     try:
         user_id = message.from_user.id
-        cloned_bots = list(clonebotdb.find({"user_id": user_id}))
+        cloned_bots = list(clonebotdb.find({"user_id": user_id}) or [])
         
         if not cloned_bots:
             await message.reply_text("You have not cloned any bots.")
@@ -295,7 +295,7 @@ async def my_cloned_bots(client, message, _):
 @language
 async def list_cloned_bots(client, message, _):
     try:
-        cloned_bots = list(clonebotdb.find())
+        cloned_bots = list(clonebotdb.find() or [])
         if not cloned_bots:
             await message.reply_text("No bots have been cloned yet.")
             return
@@ -306,15 +306,19 @@ async def list_cloned_bots(client, message, _):
         for bot in cloned_bots:
             # Fetch the bot owner's details using their user_id
             owner = await client.get_users(bot['user_id'])
-            
-            # Prepare the profile link and first name
-            owner_name = owner.first_name
-            owner_profile_link = f"tg://user?id={bot['user_id']}"
+            if owner:
+                # Prepare the profile link and first name
+                owner_name = owner.first_name
+                owner_profile_link = f"tg://user?id={bot['user_id']}"
 
-            text += f"**Bᴏᴛ ID:** `{bot['bot_id']}`\n"
-            text += f"**Bᴏᴛ Nᴀᴍᴇ:** {bot['name']}\n"
-            text += f"**Bᴏᴛ Usᴇʀɴᴀᴍᴇ:** @{bot['username']}\n"
-            text += f"**Oᴡɴᴇʀ:** [{owner_name}]({owner_profile_link})\n\n"
+                text += f"**Bᴏᴛ ID:** `{bot['bot_id']}`\n"
+                text += f"**Bᴏᴛ Nᴀᴍᴇ:** {bot['name']}\n"
+                text += f"**Bᴏᴛ Usᴇʀɴᴀᴍᴇ:** @{bot['username']}\n"
+                text += f"**Oᴡɴᴇʀ:** [{owner_name}]({owner_profile_link})\n\n"
+            else:
+                text += f"**Bᴏᴛ ID:** `{bot['bot_id']}`\n"
+                text += f"**Bᴏᴛ Nᴀᴍᴇ:** {bot['name']}\n"
+                text += f"**Bᴏᴛ Usᴇʀɴᴀᴍᴇ:** @{bot['username']}\n\n"
 
         await message.reply_text(text)
     except Exception as e:
