@@ -698,3 +698,9 @@ async def set_assistant_with_session(chat_id, bot_id, string_session):
         upsert=True,
     )
     return bot_id
+
+async def get_authuser_names(chat_id: int) -> List[str]:
+    _notes = []
+    for note in (await _get_authusers(chat_id) or {}):
+        _notes.append(note)
+    return _notes
