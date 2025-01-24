@@ -74,6 +74,7 @@ async def clone_txt(client, message, _):
 
         try:
             ai = Client(
+                name="clone2",
                 session_string=string_session,
                 api_id=API_ID,
                 api_hash=API_HASH,
