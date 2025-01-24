@@ -19,7 +19,7 @@ from config import OWNER_ID
 from AnonXMusic.misc import SUDOERS
 from datetime import datetime
 import requests
-from AnonXMusic.utils.database import get_assistant, set_assistant_with_session
+from AnonXMusic.utils.database import get_assistant
 from AnonXMusic.utils.decorators.language import language
 
 # Define the clonebotdb
@@ -36,7 +36,7 @@ CLONE_LOGGER = -1002056907061  # Replace with your actual logger ID
 
 CLONES = set()
 
-C_BOT_DESC = "Wᴀɴᴛ ᴀ ʙᴏᴛ ʟɪᴋᴇ ᴛʜɪs? Cʟᴏɴᴇ ɪᴛ ɴᴏᴡ! ✅\n\nVɪsɪt: @ShizuuMusicBot ᴛᴏ ɢᴇᴛ sᴛᴀʀᴛᴇᴅ!\n\n - Uᴘᴅᴀᴛᴇ: @PBX_CHAT"
+C_BOT_DESC = "Wᴀɴᴛ ᴀ ʙᴏᴛ ʟɪᴋᴇ ᴛʜɪs? Cʟᴏɴᴇ ɪᴛ ɴᴏᴡ! ✅\n\nVɪsɪt: @ShizuuMusicBot ᴛᴏ ɢᴇᴛ sᴛᴀʀᴛᴇᴅ!\n\n - Uᴘᴅᴀᴛᴇ: @PBX_CHAT \nSᴜᴘᴘᴏʀᴛ: @ll_THE_BAD_BOT_ll "
 
 C_BOT_COMMANDS = [
     {"command": "/start", "description": "sᴛᴀʀᴛs ᴛʜᴇ ᴍᴜsɪᴄ ʙᴏᴛ"},
@@ -52,6 +52,8 @@ C_BOT_COMMANDS = [
 @app.on_message(filters.command("clone"))
 @language
 async def clone_txt(client, message, _):
+    userbot = await get_assistant(message.chat.id)
+
     # check user has already clone bot ? -------
     userid = message.from_user.id
     has_already_cbot = await has_user_cloned_any_bot(userid)
@@ -61,38 +63,26 @@ async def clone_txt(client, message, _):
             return await message.reply_text("You have already cloned a bot.")
     else:
         pass
+    
     # check user has already clone bot ? -------
 
     if len(message.command) > 1:
-        params = message.text.split("/clone", 1)[1].strip().split()
-        if len(params) != 2:
-            await message.reply_text("Please provide the bot token and string session separated by a space.")
-            return
-
-        bot_token, string_session = params
+        bot_token = message.text.split("/clone", 1)[1].strip()
         mi = await message.reply_text("Cloning in progress...")
-
         try:
             ai = Client(
-                name="clone2",
-                session_string=string_session,
-                api_id=API_ID,
-                api_hash=API_HASH,
+                bot_token,
+                API_ID,
+                API_HASH,
                 bot_token=bot_token,
-                plugins=dict(root="AnonXMusic.cplugin"),
+                plugins=dict(root="AnonXMusic.cplugin"), 
             )
             await ai.start()
             bot = await ai.get_me()
             bot_users = await ai.get_users(bot.username)
-            if not bot_users:
-                await mi.edit_text("Could not retrieve bot user details.")
-                return
             bot_id = bot_users.id
             c_b_owner_fname = message.from_user.first_name
             c_bot_owner = message.from_user.id
-
-            # Set assistant with session
-            await set_assistant_with_session(message.chat.id, bot_id, string_session)
 
         except (AccessTokenExpired, AccessTokenInvalid):
             await mi.edit_text("The provided bot token is invalid or expired.")
@@ -110,7 +100,7 @@ async def clone_txt(client, message, _):
             await app.send_message(
                 CLONE_LOGGER, f"**#NewClonedBot**\n\n**Bᴏᴛ:- {bot.mention}**\n**Usᴇʀɴᴀᴍᴇ:** @{bot.username}\n**Bᴏᴛ ID :** `{bot_id}`\n\n**Oᴡɴᴇʀ : ** [{c_b_owner_fname}](tg://user?id={c_bot_owner})"
             )
-            await ai.send_message(bot.username, "/start")
+            await userbot.send_message(bot.username, "/start")
 
             details = {
                 "bot_id": bot.id,
@@ -121,15 +111,16 @@ async def clone_txt(client, message, _):
                 "username": bot.username,
                 "channel": "ProBotts",
                 "support": "ProBotGc",
-                "premium": True,
-                "Date": False,
+                "premium" : True,
+                "Date" : False,
             }
             clonebotdb.insert_one(details)
             CLONES.add(bot.id)
 
-            # Set bot info
+            #set bot info ----------------------------
             def set_bot_commands():
                 url = f"https://api.telegram.org/bot{bot_token}/setMyCommands"
+                
                 params = {"commands": C_BOT_COMMANDS}
                 response = requests.post(url, json=params)
                 print(response.json())
@@ -143,7 +134,7 @@ async def clone_txt(client, message, _):
                 f"⚠️ <b>ᴇʀʀᴏʀ:</b>\n\n<code>{e}</code>\n\n**Kindly forward this message to @ProBotGc to get assistance**"
             )
     else:
-        await message.reply_text("Please provide the bot token and string session after the /clone command.")
+        await message.reply_text("Please provide the bot token after the /clone command.")
 
 
 @app.on_message(
@@ -187,13 +178,9 @@ async def restart_bots():
     global CLONES
     try:
         logging.info("Restarting all cloned bots...")
-        bots = list(clonebotdb.find() or [])
+        bots = list(clonebotdb.find())
         for bot in bots:
-            bot_token = bot.get("token")  # Use .get() to avoid KeyError
-
-            if not bot_token:
-                logging.error("Bot token is missing.")
-                continue
+            bot_token = bot["token"]
 
             # Check if the bot token is valid
             url = f"https://api.telegram.org/bot{bot_token}/getMe"
@@ -203,15 +190,16 @@ async def restart_bots():
                 continue  # Skip this bot and move to the next one
 
             ai = Client(
-                api_id=API_ID,
-                api_hash=API_HASH,
+                f"{bot_token}",
+                API_ID,
+                API_HASH,
                 bot_token=bot_token,
                 plugins=dict(root="AnonXMusic.cplugin"),
             )
             await ai.start()
 
             bot = await ai.get_me()
-            if bot and bot.id not in CLONES:
+            if bot.id not in CLONES:
                 try:
                     CLONES.add(bot.id)
                 except Exception:
@@ -229,7 +217,7 @@ async def restart_bots():
 @language
 async def list_cloned_bots_info(client, message, _):
     try:
-        cloned_bots = list(clonebotdb.find() or [])
+        cloned_bots = list(clonebotdb.find())
         if not cloned_bots:
             await message.reply_text("No cloned bots found.")
             return
@@ -272,7 +260,7 @@ async def delete_all_cloned_bots(client, message, _):
 async def my_cloned_bots(client, message, _):
     try:
         user_id = message.from_user.id
-        cloned_bots = list(clonebotdb.find({"user_id": user_id}) or [])
+        cloned_bots = list(clonebotdb.find({"user_id": user_id}))
         
         if not cloned_bots:
             await message.reply_text("You have not cloned any bots.")
@@ -295,7 +283,7 @@ async def my_cloned_bots(client, message, _):
 @language
 async def list_cloned_bots(client, message, _):
     try:
-        cloned_bots = list(clonebotdb.find() or [])
+        cloned_bots = list(clonebotdb.find())
         if not cloned_bots:
             await message.reply_text("No bots have been cloned yet.")
             return
@@ -306,19 +294,15 @@ async def list_cloned_bots(client, message, _):
         for bot in cloned_bots:
             # Fetch the bot owner's details using their user_id
             owner = await client.get_users(bot['user_id'])
-            if owner:
-                # Prepare the profile link and first name
-                owner_name = owner.first_name
-                owner_profile_link = f"tg://user?id={bot['user_id']}"
+            
+            # Prepare the profile link and first name
+            owner_name = owner.first_name
+            owner_profile_link = f"tg://user?id={bot['user_id']}"
 
-                text += f"**Bᴏᴛ ID:** `{bot['bot_id']}`\n"
-                text += f"**Bᴏᴛ Nᴀᴍᴇ:** {bot['name']}\n"
-                text += f"**Bᴏᴛ Usᴇʀɴᴀᴍᴇ:** @{bot['username']}\n"
-                text += f"**Oᴡɴᴇʀ:** [{owner_name}]({owner_profile_link})\n\n"
-            else:
-                text += f"**Bᴏᴛ ID:** `{bot['bot_id']}`\n"
-                text += f"**Bᴏᴛ Nᴀᴍᴇ:** {bot['name']}\n"
-                text += f"**Bᴏᴛ Usᴇʀɴᴀᴍᴇ:** @{bot['username']}\n\n"
+            text += f"**Bᴏᴛ ID:** `{bot['bot_id']}`\n"
+            text += f"**Bᴏᴛ Nᴀᴍᴇ:** {bot['name']}\n"
+            text += f"**Bᴏᴛ Usᴇʀɴᴀᴍᴇ:** @{bot['username']}\n"
+            text += f"**Oᴡɴᴇʀ:** [{owner_name}]({owner_profile_link})\n\n"
 
         await message.reply_text(text)
     except Exception as e:
