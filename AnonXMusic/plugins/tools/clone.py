@@ -84,6 +84,9 @@ async def clone_txt(client, message, _):
             await ai.start()
             bot = await ai.get_me()
             bot_users = await ai.get_users(bot.username)
+            if not bot_users:
+                await mi.edit_text("Could not retrieve bot user details.")
+                return
             bot_id = bot_users.id
             c_b_owner_fname = message.from_user.first_name
             c_bot_owner = message.from_user.id
@@ -186,7 +189,11 @@ async def restart_bots():
         logging.info("Restarting all cloned bots...")
         bots = list(clonebotdb.find())
         for bot in bots:
-            bot_token = bot["token"]
+            bot_token = bot.get("token")  # Use .get() to avoid KeyError
+
+            if not bot_token:
+                logging.error("Bot token is missing.")
+                continue
 
             # Check if the bot token is valid
             url = f"https://api.telegram.org/bot{bot_token}/getMe"
@@ -204,7 +211,7 @@ async def restart_bots():
             await ai.start()
 
             bot = await ai.get_me()
-            if bot.id not in CLONES:
+            if bot and bot.id not in CLONES:
                 try:
                     CLONES.add(bot.id)
                 except Exception:
