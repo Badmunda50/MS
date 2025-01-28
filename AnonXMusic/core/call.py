@@ -627,35 +627,44 @@ class Call(PyTgCalls):
             await self.four.start()
         if config.STRING5:
             await self.five.start()
+            
 
     async def decorators(self):
-        @self.one.on_kicked()
-        @self.two.on_kicked()
-        @self.three.on_kicked()
-        @self.four.on_kicked()
-        @self.five.on_kicked()
-        @self.one.on_closed_voice_chat()
-        @self.two.on_closed_voice_chat()
-        @self.three.on_closed_voice_chat()
-        @self.four.on_closed_voice_chat()
-        @self.five.on_closed_voice_chat()
-        @self.one.on_left()
-        @self.two.on_left()
-        @self.three.on_left()
-        @self.four.on_left()
-        @self.five.on_left()
-        async def stream_services_handler(_, chat_id: int):
-            await self.stop_stream(chat_id)
+        # Using the new event handling system in py-tgcalls v2.0.6
+        # Here we register the handlers using the on_update decorator
 
-        @self.one.on_stream_end()
-        @self.two.on_stream_end()
-        @self.three.on_stream_end()
-        @self.four.on_stream_end()
-        @self.five.on_stream_end()
-        async def stream_end_handler1(client, update: Update):
-            if not isinstance(update, StreamAudioEnded):
-                return
-            await self.change_stream(client, update.chat_id)
+        @self.one.on_update(filters.chat_update(ChatUpdate.Status.KICKED))
+        @self.two.on_update(filters.chat_update(ChatUpdate.Status.KICKED))
+        @self.three.on_update(filters.chat_update(ChatUpdate.Status.KICKED))
+        @self.four.on_update(filters.chat_update(ChatUpdate.Status.KICKED))
+        @self.five.on_update(filters.chat_update(ChatUpdate.Status.KICKED))
+        async def handle_kicked(_, chat_id: int):
+            await self.stream_services_handler(_, chat_id)
 
+        @self.one.on_update(filters.chat_update(ChatUpdate.Status.CLOSED_VOICE_CHAT))
+        @self.two.on_update(filters.chat_update(ChatUpdate.Status.CLOSED_VOICE_CHAT))
+        @self.three.on_update(filters.chat_update(ChatUpdate.Status.CLOSED_VOICE_CHAT))
+        @self.four.on_update(filters.chat_update(ChatUpdate.Status.CLOSED_VOICE_CHAT))
+        @self.five.on_update(filters.chat_update(ChatUpdate.Status.CLOSED_VOICE_CHAT))
+        async def handle_closed_voice_chat(_, chat_id: int):
+            await self.stream_services_handler(_, chat_id)
+
+        @self.one.on_update(filters.chat_update(ChatUpdate.Status.LEFT_GROUP))
+        @self.two.on_update(filters.chat_update(ChatUpdate.Status.LEFT_GROUP))
+        @self.three.on_update(filters.chat_update(ChatUpdate.Status.LEFT_GROUP))
+        @self.four.on_update(filters.chat_update(ChatUpdate.Status.LEFT_GROUP))
+        @self.five.on_update(filters.chat_update(ChatUpdate.Status.LEFT_GROUP))
+        async def handle_left_group(_, chat_id: int):
+            await self.stream_services_handler(_, chat_id)
+
+        @self.one.on_update(filters.stream_end)
+        @self.two.on_update(filters.stream_end)
+        @self.three.on_update(filters.stream_end)
+        @self.four.on_update(filters.stream_end)
+        @self.five.on_update(filters.stream_end)
+        async def handle_stream_end(client, update: Update):
+            await self.stream_end_handler(client, update)
+
+    
 
 Anony = Call()
