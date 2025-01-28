@@ -14,7 +14,6 @@ py-tgcalls==0.9.7
 ntgcalls==1.1.2
 pykeyboard
 pyrogram-dev
-pyrofork
 python-dotenv
 pyyaml
 requests
