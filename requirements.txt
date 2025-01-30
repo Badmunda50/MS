@@ -21,6 +21,6 @@ speedtest-cli
 spotipy
 tgcrypto==1.2.5
 unidecode
-yt-dlp==2025.1.12
+yt-dlp
 youtube-search
 youtube-search-python
